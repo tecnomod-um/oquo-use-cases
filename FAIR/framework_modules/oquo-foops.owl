@@ -1,0 +1,2565 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://purl.org/oquo-foops#"
+     xml:base="https://purl.org/oquo-foops"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:om-1="http://www.wurvoc.org/vocabularies/om-1.8/"
+     xmlns:rdf1="http://www.cropontology.org/rdf/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:oquo="https://purl.org/oquo#"
+     xmlns:oquo-fair-qm="https://purl.org/oquo-fair-qm#"
+     xmlns:QualityModel="http://purl.org/net/QualityModel#">
+    <owl:Ontology rdf:about="https://purl.org/oquo-foops">
+        <owl:imports rdf:resource="https://purl.org/oquo-fair-qm"/>
+        <dc:title xml:lang="en">OQUO FOOPS! module</dc:title>
+        <dc:description xml:lang="en">OQUO extension module that describes the metrics of FOOPS! (Ontology Pitfall Scanner for FAIR), their raw scales and the conversions of these raw scales into the percentage scale of the OQUO FAIR quality model. Each FOOPS! check is represented as a metric linked to the FAIR subcharacteristic it assesses, whose raw value is the ratio between the passed and run tests of the check. The module also defines the types of issues of non conformity that FOOPS! can report: one ontology level issue per failed check, and one term level issue per term affected by the checks on term labels and definitions.</dc:description>
+        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-29</terms:created>
+        <terms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+        <vann:preferredNamespacePrefix>oquo-foops</vann:preferredNamespacePrefix>
+        <vann:preferredNamespaceUri>https://purl.org/oquo-foops#</vann:preferredNamespaceUri>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/"/>
+        <rdfs:seeAlso rdf:resource="https://github.com/oeg-upm/fair_ontologies"/>
+        <obo:IAO_0000116 xml:lang="en">The definitions of the metrics are adapted from the FOOPS! metric descriptions (https://w3id.org/foops/catalog, CC BY 4.0). Each metric is linked through rdfs:seeAlso to the FOOPS! test that computes it, whose IRI is the identifier returned by FOOPS! in its results.</obo:IAO_0000116>
+    </owl:Ontology>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#seeAlso -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2000/01/rdf-schema#seeAlso"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+    <!-- https://purl.org/oquo-foops#BasicProvenanceMetadataMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#BasicProvenanceMetadataMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#R1_2Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#R1_2Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#BasicProvenanceMetadataMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the ontology metadata include basic provenance information, namely the author and the creation date, which are mandatory; contributors and previous version are recommended but not required. Each mandatory field is checked by a separate test. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle R1.2.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/OM5.1</obo:IAO_0000119>
+        <rdf1:acronym>OM5.1</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the ontology declares basic provenance metadata (author and creation date).</rdfs:comment>
+        <rdfs:label xml:lang="en">basic provenance metadata metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/OM5.1"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#ConsistentOntologyIDMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#ConsistentOntologyIDMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#F1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#F1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#ConsistentOntologyIDMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the URI used to retrieve and assess the ontology is consistent with the ontology URI declared within the ontology document. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle F1.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/URI2</obo:IAO_0000119>
+        <rdf1:acronym>URI2</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the URI used to access the ontology is consistent with the ontology URI declared in the document.</rdfs:comment>
+        <rdfs:label xml:lang="en">consistent ontology ID metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/URI2"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#ContentNegotiationMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#ContentNegotiationMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#A1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#A1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#ContentNegotiationMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the ontology is served through content negotiation both as a human-readable HTML representation and in at least one recognised RDF serialisation, such as RDF/XML or Turtle. It runs two tests, one for the HTML representation and one for the RDF serialisations, and fails if any of them cannot be retrieved. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle A1.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/CN1</obo:IAO_0000119>
+        <rdf1:acronym>CN1</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the ontology can be retrieved both as HTML and in a recognised RDF serialisation.</rdfs:comment>
+        <rdfs:label xml:lang="en">content negotiation metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/CN1"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#DetailedMetadataMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#DetailedMetadataMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#R1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#R1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#DetailedMetadataMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the ontology metadata include a set of detailed fields: DOI, publisher, logo, status, source and issued date. Previous version, backward compatibility and modification date are also inspected but their absence is not penalised. Each mandatory field is checked by a separate test. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle R1.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/OM3</obo:IAO_0000119>
+        <rdf1:acronym>OM3</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the ontology declares a set of detailed metadata fields.</rdfs:comment>
+        <rdfs:label xml:lang="en">detailed metadata metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/OM3"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#DetailedProvenanceMetadataMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#DetailedProvenanceMetadataMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#R1_2Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#R1_2Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#DetailedProvenanceMetadataMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the ontology metadata include detailed provenance information, namely the issued date and the publisher. Each field is checked by a separate test. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle R1.2.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/OM5.2</obo:IAO_0000119>
+        <rdf1:acronym>OM5.2</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the ontology declares detailed provenance metadata (issued date and publisher).</rdfs:comment>
+        <rdfs:label xml:lang="en">detailed provenance metadata metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/OM5.2"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#HTMLDocumentationMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#HTMLDocumentationMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#R1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#R1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#HTMLDocumentationMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether an accessible, online HTML page documenting the ontology exists, so that users can understand its structure and content before reusing it. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle R1.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/DOC1</obo:IAO_0000119>
+        <rdf1:acronym>DOC1</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the ontology has accessible HTML documentation.</rdfs:comment>
+        <rdfs:label xml:lang="en">HTML documentation metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/DOC1"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#LicenseAvailableMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#LicenseAvailableMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#R1_1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#R1_1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#LicenseAvailableMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the ontology metadata include a clearly defined license or rights statement that informs users about the conditions under which the ontology can be used and shared. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle R1.1.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/OM4.1</obo:IAO_0000119>
+        <rdf1:acronym>OM4.1</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the ontology declares a license or rights statement.</rdfs:comment>
+        <rdfs:label xml:lang="en">license available metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/OM4.1"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#LicenseResolvableMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#LicenseResolvableMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#R1_1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#R1_1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#LicenseResolvableMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the license declared in the ontology metadata is identified by a URL that resolves to the license document, so that users can verify the terms of use. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle R1.1.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/OM4.2</obo:IAO_0000119>
+        <rdf1:acronym>OM4.2</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the license of the ontology is identified by a resolvable URL.</rdfs:comment>
+        <rdfs:label xml:lang="en">license resolvable metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/OM4.2"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#MetadataAccessibleWithoutOntologyMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#MetadataAccessibleWithoutOntologyMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#A2Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#A2Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#MetadataAccessibleWithoutOntologyMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the metadata of the ontology are kept in a persistent public registry, such as Linked Open Vocabularies (LOV), so that they remain accessible even if the ontology itself is no longer available. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle A2.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/FIND_3_BIS</obo:IAO_0000119>
+        <rdf1:acronym>FIND_3_BIS</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the metadata of the ontology remain accessible even if the ontology itself becomes unavailable.</rdfs:comment>
+        <rdfs:label xml:lang="en">metadata accessible without ontology metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/FIND_3_BIS"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#MetadataVocabularyReuseMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#MetadataVocabularyReuseMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#I2Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#I2Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#MetadataVocabularyReuseMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the metadata of the ontology are declared with established vocabularies, such as Dublin Core, FOAF or SKOS. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle I2.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/VOC1</obo:IAO_0000119>
+        <rdf1:acronym>VOC1</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the ontology reuses established vocabularies for its metadata annotations.</rdfs:comment>
+        <rdfs:label xml:lang="en">metadata vocabulary reuse metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/VOC1"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#MinimumMetadataMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#MinimumMetadataMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#F2Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#F2Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#MinimumMetadataMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the ontology metadata include a minimum set of fields: title, description, license, version IRI, creator and namespace URI. Each field is checked by a separate test. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle F2.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/OM1</obo:IAO_0000119>
+        <rdf1:acronym>OM1</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the ontology declares the minimum metadata required to ease its findability.</rdfs:comment>
+        <rdfs:label xml:lang="en">minimum metadata metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/OM1"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#OntologyInMetadataRegistryMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#OntologyInMetadataRegistryMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#F4Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#F4Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#OntologyInMetadataRegistryMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the ontology is registered in a trusted public metadata registry, such as Linked Open Vocabularies (LOV), where it can be searched and found. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle F4.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/FIND3</obo:IAO_0000119>
+        <rdf1:acronym>FIND3</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the ontology is registered in a public metadata registry such as LOV.</rdfs:comment>
+        <rdfs:label xml:lang="en">ontology in metadata registry metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/FIND3"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#OntologyPrefixDeclaredMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#OntologyPrefixDeclaredMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#F3Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#F3Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#OntologyPrefixDeclaredMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the ontology metadata declare a preferred namespace prefix for the ontology, which helps to refer to the ontology and its namespace unambiguously. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle F3.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/FIND1</obo:IAO_0000119>
+        <rdf1:acronym>FIND1</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether a preferred prefix for the ontology is declared in its metadata.</rdfs:comment>
+        <rdfs:label xml:lang="en">ontology prefix declared metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/FIND1"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#OntologyURIResolvableMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#OntologyURIResolvableMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#F1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#F1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#OntologyURIResolvableMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the ontology URI declared within the ontology document, which may differ from the URL given as input to FOOPS!, is resolvable and returns content in a recognised RDF serialisation. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle F1.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/URI1</obo:IAO_0000119>
+        <rdf1:acronym>URI1</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the ontology URI declared in the document resolves to RDF content.</rdfs:comment>
+        <rdfs:label xml:lang="en">ontology URI resolvable metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/URI1"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#OpenProtocolMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#OpenProtocolMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#A1_1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#A1_1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#OpenProtocolMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the ontology is retrieved through an open, free and universally implementable protocol, such as HTTP or HTTPS. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle A1.1.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/HTTP1</obo:IAO_0000119>
+        <rdf1:acronym>HTTP1</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the ontology is accessible through an open protocol such as HTTP or HTTPS.</rdfs:comment>
+        <rdfs:label xml:lang="en">open protocol metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/HTTP1"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#PersistentURLMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#PersistentURLMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#F1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#F1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#PersistentURLMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the ontology is identified by a persistent URL, such as those provided by w3id.org, purl.org or a DOI, which guarantees reliable and long-term access. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle F1.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/PURL1</obo:IAO_0000119>
+        <rdf1:acronym>PURL1</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the ontology URI is a persistent URL.</rdfs:comment>
+        <rdfs:label xml:lang="en">persistent URL metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/PURL1"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#PrefixInCommunityRegistryMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#PrefixInCommunityRegistryMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#F4Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#F4Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#PrefixInCommunityRegistryMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the prefix declared in the ontology metadata is registered in a community prefix registry and whether the registered namespace corresponds to the ontology URI, so that the ontology can be discovered from its prefix. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle F4.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/FIND2</obo:IAO_0000119>
+        <rdf1:acronym>FIND2</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the prefix of the ontology is found in a community registry and resolves to the ontology URI.</rdfs:comment>
+        <rdfs:label xml:lang="en">prefix in community registry metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/FIND2"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#RDFAvailabilityMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#RDFAvailabilityMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#I1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#I1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#RDFAvailabilityMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the ontology is available in at least one recognised and valid RDF serialisation, such as RDF/XML or Turtle. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle I1.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/RDF1</obo:IAO_0000119>
+        <rdf1:acronym>RDF1</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the ontology is available in a valid RDF serialisation.</rdfs:comment>
+        <rdfs:label xml:lang="en">RDF availability metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/RDF1"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#RecommendedMetadataMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#RecommendedMetadataMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#R1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#R1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#RecommendedMetadataMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the ontology metadata include a set of recommended fields that enrich its documentation: namespace prefix, version information, creation date and citation, contributors being optional. Each field is checked by a separate test. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle R1.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/OM2</obo:IAO_0000119>
+        <rdf1:acronym>OM2</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the ontology declares a set of recommended metadata fields.</rdfs:comment>
+        <rdfs:label xml:lang="en">recommended metadata metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/OM2"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#TermDefinitionsMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#TermDefinitionsMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#R1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#R1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#TermDefinitionsMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the terms of the ontology have a definition or description. FOOPS! runs one test per term, so the value of the metric is the proportion of terms with a definition. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle R1.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/VOC4</obo:IAO_0000119>
+        <rdf1:acronym>VOC4</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Proportion of ontology terms that have a definition.</rdfs:comment>
+        <rdfs:label xml:lang="en">term definitions metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/VOC4"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#TermLabelsMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#TermLabelsMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#R1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#R1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#TermLabelsMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the terms of the ontology have human-readable labels. FOOPS! runs one test per term, so the value of the metric is the proportion of terms with a label. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle R1.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/VOC3</obo:IAO_0000119>
+        <rdf1:acronym>VOC3</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Proportion of ontology terms that have a human-readable label.</rdfs:comment>
+        <rdfs:label xml:lang="en">term labels metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/VOC3"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#VersionIRIDeclaredMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#VersionIRIDeclaredMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#F1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#F1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#VersionIRIDeclaredMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the ontology metadata declare a version IRI and whether it is different from the ontology URI, so that each version of the ontology has its own identifier. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle F1.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/VER1</obo:IAO_0000119>
+        <rdf1:acronym>VER1</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the ontology declares a version IRI distinct from the ontology URI.</rdfs:comment>
+        <rdfs:label xml:lang="en">version IRI declared metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/VER1"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#VersionIRIResolvableMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#VersionIRIResolvableMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#F1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#F1Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#VersionIRIResolvableMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the version IRI declared in the ontology metadata resolves to the corresponding version of the ontology. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle F1.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/VER2</obo:IAO_0000119>
+        <rdf1:acronym>VER2</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the version IRI of the ontology resolves.</rdfs:comment>
+        <rdfs:label xml:lang="en">version IRI resolvable metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/VER2"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#VocabularyReuseMetric -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#VocabularyReuseMetric">
+        <rdfs:subClassOf rdf:resource="http://purl.org/net/QualityModel#DerivedMeasure"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/oquo#RawScale"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasRankigFunction"/>
+                                <owl:hasValue rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#I2Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://purl.org/oquo#measuresCharacteristicPositively"/>
+                <owl:allValuesFrom rdf:resource="https://purl.org/oquo-fair-qm#I2Characteristic"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.org/net/QualityModel#hasScale"/>
+                <owl:hasValue rdf:resource="https://purl.org/oquo-foops#VocabularyReuseMetricScale"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000115 xml:lang="en">This metric checks whether the ontology imports or extends, in its classes or properties, at least one well-established vocabulary besides RDF, RDFS and OWL. The raw value of the metric is the ratio between the number of tests passed and the number of tests run by FOOPS! for this check (total_passed_tests / total_tests_run), so it ranges from 0 to 1 and higher values are better. It measures FAIR principle I2.</obo:IAO_0000115>
+        <obo:IAO_0000119 xml:lang="en">FOOPS!, https://w3id.org/foops/metric/VOC2</obo:IAO_0000119>
+        <rdf1:acronym>VOC2</rdf1:acronym>
+        <rdfs:comment xml:lang="en">Whether the ontology imports or reuses vocabularies other than RDF, RDFS and OWL.</rdfs:comment>
+        <rdfs:label xml:lang="en">vocabulary reuse metric</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/VOC2"/>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#FOOPSIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#FOOPSIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo#IssueByNonConformity"/>
+        <rdfs:label xml:lang="en">FOOPS! issue</rdfs:label>
+        <skos:definition xml:lang="en">Issue of non conformity with the FAIR principles detected by FOOPS!. Each type of issue corresponds to a FOOPS! check, and issues of that type are reported when the check fails.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#OntologyLevelFOOPSIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#FOOPSIssue"/>
+        <rdfs:label xml:lang="en">ontology level FOOPS! issue</rdfs:label>
+        <skos:definition xml:lang="en">FOOPS! issue affecting the ontology as a whole, whose host asset is the evaluated ontology. One issue of this kind is reported for each failed FOOPS! check.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#TermLevelFOOPSIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#TermLevelFOOPSIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#FOOPSIssue"/>
+        <rdfs:label xml:lang="en">term level FOOPS! issue</rdfs:label>
+        <skos:definition xml:lang="en">FOOPS! issue affecting a single term of the ontology (a class, property, individual or SKOS concept within the namespace of the ontology), whose host asset is that term. One issue of this kind is reported for each term listed by FOOPS! as an affected element of a failed check.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#ContentNegotiationNotSupportedIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#ContentNegotiationNotSupportedIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Configure the server or the persistent URL service hosting the ontology so that its IRI returns an HTML documentation page when HTML is requested (Accept: text/html) and an RDF serialisation such as RDF/XML or Turtle when RDF is requested (e.g. Accept: text/turtle).</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">content negotiation not supported issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/CN1"/>
+        <skos:definition xml:lang="en">The ontology is not available through content negotiation both in HTML and in a recognised RDF serialisation.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#InconsistentOntologyIDIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#InconsistentOntologyIDIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Make the ontology URI declared in the ontology document consistent with the URI used to publish and access the ontology.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">inconsistent ontology ID issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/URI2"/>
+        <skos:definition xml:lang="en">The URI used to access the ontology is different from the ontology URI declared in the ontology document.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#LicenseNotResolvableIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#LicenseNotResolvableIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Identify the license with a resolvable URL that leads to the license document, such as the IRI of a Creative Commons license, instead of a literal or a non-resolvable identifier.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">license not resolvable issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/OM4.2"/>
+        <skos:definition xml:lang="en">The license declared in the ontology metadata cannot be resolved.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#MetadataNotAccessibleWithoutOntologyIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#MetadataNotAccessibleWithoutOntologyIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Register the ontology in a persistent public metadata registry, such as Linked Open Vocabularies, so that its metadata remain accessible even if the ontology itself is no longer available.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">metadata not accessible without ontology issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/FIND_3_BIS"/>
+        <skos:definition xml:lang="en">The metadata of the ontology are not kept in a persistent public registry, so they would not remain accessible if the ontology became unavailable.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#MissingBasicProvenanceMetadataIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#MissingBasicProvenanceMetadataIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Add the author (e.g. dcterms:creator) and the creation date (e.g. dcterms:created) to the ontology header, and consider declaring the contributors and the previous version.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">missing basic provenance metadata issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/OM5.1"/>
+        <skos:definition xml:lang="en">The ontology metadata lack some of the basic provenance metadata (author or creation date).</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#MissingDetailedMetadataIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#MissingDetailedMetadataIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Add the missing detailed metadata to the ontology header, e.g. a DOI (bibo:doi), dcterms:publisher, foaf:logo, a status (bibo:status), dcterms:source and dcterms:issued, and consider declaring the previous version, the backward compatibility and the modification date.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">missing detailed metadata issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/OM3"/>
+        <skos:definition xml:lang="en">The ontology metadata lack some of the detailed metadata fields (DOI, publisher, logo, status, source or issued date).</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#MissingDetailedProvenanceMetadataIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#MissingDetailedProvenanceMetadataIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Add the issued date (e.g. dcterms:issued) and the publisher (e.g. dcterms:publisher) to the ontology header.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">missing detailed provenance metadata issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/OM5.2"/>
+        <skos:definition xml:lang="en">The ontology metadata lack some of the detailed provenance metadata (issued date or publisher).</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#MissingDistinctVersionIRIIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#MissingDistinctVersionIRIIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Declare a version IRI (owl:versionIRI) that identifies the specific version of the ontology and differs from the ontology URI, e.g. by including the version number or the release date.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">missing distinct version IRI issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/VER1"/>
+        <skos:definition xml:lang="en">The ontology metadata do not declare a version IRI, or the version IRI is equal to the ontology URI.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#MissingMinimumMetadataIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#MissingMinimumMetadataIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Add the missing minimum metadata to the ontology header, reusing standard vocabularies, e.g. dcterms:title, dcterms:description, dcterms:license, owl:versionIRI, dcterms:creator and vann:preferredNamespaceUri.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">missing minimum metadata issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/OM1"/>
+        <skos:definition xml:lang="en">The ontology metadata lack some of the minimum metadata fields (title, description, license, version IRI, creator or namespace URI).</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#MissingRecommendedMetadataIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#MissingRecommendedMetadataIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Add the missing recommended metadata to the ontology header, e.g. vann:preferredNamespacePrefix, owl:versionInfo, dcterms:created and dcterms:bibliographicCitation, and consider adding the contributors (dcterms:contributor).</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">missing recommended metadata issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/OM2"/>
+        <skos:definition xml:lang="en">The ontology metadata lack some of the recommended metadata fields (namespace prefix, version information, creation date or citation).</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#NoHTMLDocumentationIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#NoHTMLDocumentationIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Publish an HTML documentation page of the ontology describing its scope, classes and properties, for instance generated with a documentation tool such as Widoco or pyLODE, and make it accessible online, preferably through content negotiation on the ontology IRI.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">no HTML documentation issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/DOC1"/>
+        <skos:definition xml:lang="en">The ontology does not have accessible HTML documentation.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#NoLicenseIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#NoLicenseIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Declare the license of the ontology in its metadata (e.g. with dcterms:license), preferably referencing a standard license through its IRI, such as a Creative Commons license.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">no license issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/OM4.1"/>
+        <skos:definition xml:lang="en">The ontology metadata do not declare a license or rights statement.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#NoMetadataVocabularyReuseIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#NoMetadataVocabularyReuseIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Declare the metadata of the ontology with established vocabularies, such as Dublin Core, VANN, FOAF, SKOS or schema.org, instead of ad hoc properties.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">no metadata vocabulary reuse issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/VOC1"/>
+        <skos:definition xml:lang="en">The ontology does not reuse established vocabularies to declare its metadata.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#NoOpenProtocolIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#NoOpenProtocolIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Make the ontology available through an open, free and universally implementable protocol, preferably HTTPS.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">no open protocol issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/HTTP1"/>
+        <skos:definition xml:lang="en">The ontology is not accessible through an open protocol.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#NoRDFSerialisationIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#NoRDFSerialisationIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Publish the ontology in at least one standard RDF serialisation, such as RDF/XML, Turtle or JSON-LD.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">no RDF serialisation issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/RDF1"/>
+        <skos:definition xml:lang="en">The ontology is not available in any recognised RDF serialisation.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#NoVocabularyReuseIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#NoVocabularyReuseIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Consider reusing well-established vocabularies or ontologies of the domain, importing them or extending their classes and properties, instead of redefining their concepts.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">no vocabulary reuse issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/VOC2"/>
+        <skos:definition xml:lang="en">The ontology does not import or extend any vocabulary other than RDF, RDFS and OWL.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#NonPersistentURIIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#NonPersistentURIIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Identify the ontology with a persistent URL, for instance using services such as w3id.org or purl.org, which redirect to the current location of the ontology and keep its identifier stable over time.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">non persistent URI issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/PURL1"/>
+        <skos:definition xml:lang="en">The ontology URI does not follow a persistent URL scheme.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#OntologyNotInMetadataRegistryIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#OntologyNotInMetadataRegistryIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Register the ontology in a public ontology registry or repository, such as Linked Open Vocabularies, BioPortal, the OBO Foundry or OLS, so that it can be searched and found.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">ontology not in metadata registry issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/FIND3"/>
+        <skos:definition xml:lang="en">The ontology is not registered in a public metadata registry.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#OntologyURINotResolvableIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#OntologyURINotResolvableIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Make the ontology URI declared in the ontology document dereferenceable, so that it returns the ontology in a recognised RDF serialisation.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">ontology URI not resolvable issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/URI1"/>
+        <skos:definition xml:lang="en">The ontology URI declared in the ontology document cannot be resolved to RDF content.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#PrefixNotDeclaredIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#PrefixNotDeclaredIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Declare the preferred prefix of the ontology in its metadata, for instance with vann:preferredNamespacePrefix, together with its namespace (vann:preferredNamespaceUri).</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">prefix not declared issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/FIND1"/>
+        <skos:definition xml:lang="en">The ontology metadata do not declare a preferred namespace prefix.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#PrefixNotInCommunityRegistryIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#PrefixNotInCommunityRegistryIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Register the prefix of the ontology in community registries such as prefix.cc or Linked Open Vocabularies, making sure that the registered namespace corresponds to the namespace of the ontology.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">prefix not in community registry issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/FIND2"/>
+        <skos:definition xml:lang="en">The prefix of the ontology is not registered in a community prefix registry, or it is registered with a namespace different from the ontology namespace.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#TermWithNoDefinitionIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#TermWithNoDefinitionIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#TermLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Each term of the ontology is expected to have a definition or description (e.g. skos:definition, rdfs:comment or IAO:0000115) that explains its meaning and avoids ambiguities.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">term with no definition issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/VOC4"/>
+        <skos:definition xml:lang="en">The term does not have a definition.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#TermWithNoLabelIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#TermWithNoLabelIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#TermLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Each term of the ontology is expected to have a human-readable label (e.g. rdfs:label or skos:prefLabel) that makes it understandable to users.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">term with no label issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/VOC3"/>
+        <skos:definition xml:lang="en">The term does not have a human-readable label.</skos:definition>
+    </owl:Class>
+
+
+
+    <!-- https://purl.org/oquo-foops#VersionIRINotResolvableIssue -->
+
+    <owl:Class rdf:about="https://purl.org/oquo-foops#VersionIRINotResolvableIssue">
+        <rdfs:subClassOf rdf:resource="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+        <oquo:hasRecommendation xml:lang="en">Make the version IRI dereferenceable, so that it returns the corresponding version of the ontology, and keep previous versions available.</oquo:hasRecommendation>
+        <rdfs:label xml:lang="en">version IRI not resolvable issue</rdfs:label>
+        <rdfs:seeAlso rdf:resource="https://w3id.org/foops/test/VER2"/>
+        <skos:definition xml:lang="en">The version IRI of the ontology cannot be resolved.</skos:definition>
+    </owl:Class>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- https://purl.org/oquo-foops#ClosedUnitInterval -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#ClosedUnitInterval">
+        <rdf:type rdf:resource="https://purl.org/oquo#Interval"/>
+        <oquo:hasIntervalLowerBoundType rdf:resource="https://purl.org/oquo#ClosedIntervalBound"/>
+        <oquo:hasIntervalUpperBoundType rdf:resource="https://purl.org/oquo#ClosedIntervalBound"/>
+        <oquo:hasIntervalLowerValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntervalLowerValue>
+        <oquo:hasIntervalUpperValue rdf:datatype="http://www.w3.org/2001/XMLSchema#double">1.0</oquo:hasIntervalUpperValue>
+        <rdfs:comment xml:lang="en">The closed interval [0, 1], which covers the whole range of the raw scales of the FOOPS! metrics.</rdfs:comment>
+        <rdfs:label xml:lang="en">interval [0.0..1.0]</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#BasicProvenanceMetadataMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#BasicProvenanceMetadataMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the basic provenance metadata metric: the ratio between the tests passed and the tests run by the FOOPS! check OM5.1, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">basic provenance metadata metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#BasicProvenanceMetadataMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#BasicProvenanceMetadataMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#BasicProvenanceMetadataMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#BasicProvenanceMetadataMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#BasicProvenanceMetadataMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">basic provenance metadata metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#BasicProvenanceMetadataMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#BasicProvenanceMetadataMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#ConsistentOntologyIDMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#ConsistentOntologyIDMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the consistent ontology ID metric: the ratio between the tests passed and the tests run by the FOOPS! check URI2, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">consistent ontology ID metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#ConsistentOntologyIDMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#ConsistentOntologyIDMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#ConsistentOntologyIDMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#ConsistentOntologyIDMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#ConsistentOntologyIDMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">consistent ontology ID metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#ConsistentOntologyIDMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#ConsistentOntologyIDMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#ContentNegotiationMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#ContentNegotiationMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the content negotiation metric: the ratio between the tests passed and the tests run by the FOOPS! check CN1, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">content negotiation metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#ContentNegotiationMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#ContentNegotiationMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#ContentNegotiationMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#ContentNegotiationMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#ContentNegotiationMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">content negotiation metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#ContentNegotiationMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#ContentNegotiationMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#DetailedMetadataMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#DetailedMetadataMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the detailed metadata metric: the ratio between the tests passed and the tests run by the FOOPS! check OM3, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">detailed metadata metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#DetailedMetadataMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#DetailedMetadataMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#DetailedMetadataMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#DetailedMetadataMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#DetailedMetadataMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">detailed metadata metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#DetailedMetadataMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#DetailedMetadataMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#DetailedProvenanceMetadataMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#DetailedProvenanceMetadataMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the detailed provenance metadata metric: the ratio between the tests passed and the tests run by the FOOPS! check OM5.2, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">detailed provenance metadata metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#DetailedProvenanceMetadataMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#DetailedProvenanceMetadataMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#DetailedProvenanceMetadataMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#DetailedProvenanceMetadataMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#DetailedProvenanceMetadataMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">detailed provenance metadata metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#DetailedProvenanceMetadataMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#DetailedProvenanceMetadataMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#HTMLDocumentationMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#HTMLDocumentationMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the HTML documentation metric: the ratio between the tests passed and the tests run by the FOOPS! check DOC1, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">HTML documentation metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#HTMLDocumentationMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#HTMLDocumentationMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#HTMLDocumentationMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#HTMLDocumentationMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#HTMLDocumentationMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">HTML documentation metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#HTMLDocumentationMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#HTMLDocumentationMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#LicenseAvailableMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#LicenseAvailableMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the license available metric: the ratio between the tests passed and the tests run by the FOOPS! check OM4.1, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">license available metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#LicenseAvailableMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#LicenseAvailableMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#LicenseAvailableMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#LicenseAvailableMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#LicenseAvailableMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">license available metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#LicenseAvailableMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#LicenseAvailableMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#LicenseResolvableMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#LicenseResolvableMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the license resolvable metric: the ratio between the tests passed and the tests run by the FOOPS! check OM4.2, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">license resolvable metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#LicenseResolvableMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#LicenseResolvableMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#LicenseResolvableMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#LicenseResolvableMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#LicenseResolvableMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">license resolvable metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#LicenseResolvableMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#LicenseResolvableMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#MetadataAccessibleWithoutOntologyMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#MetadataAccessibleWithoutOntologyMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the metadata accessible without ontology metric: the ratio between the tests passed and the tests run by the FOOPS! check FIND_3_BIS, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">metadata accessible without ontology metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#MetadataAccessibleWithoutOntologyMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#MetadataAccessibleWithoutOntologyMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#MetadataAccessibleWithoutOntologyMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#MetadataAccessibleWithoutOntologyMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#MetadataAccessibleWithoutOntologyMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">metadata accessible without ontology metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#MetadataAccessibleWithoutOntologyMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#MetadataAccessibleWithoutOntologyMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#MetadataVocabularyReuseMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#MetadataVocabularyReuseMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the metadata vocabulary reuse metric: the ratio between the tests passed and the tests run by the FOOPS! check VOC1, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">metadata vocabulary reuse metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#MetadataVocabularyReuseMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#MetadataVocabularyReuseMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#MetadataVocabularyReuseMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#MetadataVocabularyReuseMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#MetadataVocabularyReuseMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">metadata vocabulary reuse metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#MetadataVocabularyReuseMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#MetadataVocabularyReuseMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#MinimumMetadataMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#MinimumMetadataMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the minimum metadata metric: the ratio between the tests passed and the tests run by the FOOPS! check OM1, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">minimum metadata metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#MinimumMetadataMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#MinimumMetadataMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#MinimumMetadataMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#MinimumMetadataMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#MinimumMetadataMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">minimum metadata metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#MinimumMetadataMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#MinimumMetadataMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#OntologyInMetadataRegistryMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#OntologyInMetadataRegistryMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the ontology in metadata registry metric: the ratio between the tests passed and the tests run by the FOOPS! check FIND3, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">ontology in metadata registry metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#OntologyInMetadataRegistryMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#OntologyInMetadataRegistryMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#OntologyInMetadataRegistryMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#OntologyInMetadataRegistryMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#OntologyInMetadataRegistryMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">ontology in metadata registry metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#OntologyInMetadataRegistryMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#OntologyInMetadataRegistryMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#OntologyPrefixDeclaredMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#OntologyPrefixDeclaredMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the ontology prefix declared metric: the ratio between the tests passed and the tests run by the FOOPS! check FIND1, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">ontology prefix declared metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#OntologyPrefixDeclaredMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#OntologyPrefixDeclaredMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#OntologyPrefixDeclaredMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#OntologyPrefixDeclaredMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#OntologyPrefixDeclaredMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">ontology prefix declared metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#OntologyPrefixDeclaredMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#OntologyPrefixDeclaredMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#OntologyURIResolvableMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#OntologyURIResolvableMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the ontology URI resolvable metric: the ratio between the tests passed and the tests run by the FOOPS! check URI1, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">ontology URI resolvable metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#OntologyURIResolvableMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#OntologyURIResolvableMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#OntologyURIResolvableMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#OntologyURIResolvableMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#OntologyURIResolvableMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">ontology URI resolvable metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#OntologyURIResolvableMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#OntologyURIResolvableMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#OpenProtocolMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#OpenProtocolMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the open protocol metric: the ratio between the tests passed and the tests run by the FOOPS! check HTTP1, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">open protocol metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#OpenProtocolMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#OpenProtocolMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#OpenProtocolMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#OpenProtocolMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#OpenProtocolMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">open protocol metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#OpenProtocolMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#OpenProtocolMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#PersistentURLMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#PersistentURLMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the persistent URL metric: the ratio between the tests passed and the tests run by the FOOPS! check PURL1, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">persistent URL metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#PersistentURLMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#PersistentURLMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#PersistentURLMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#PersistentURLMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#PersistentURLMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">persistent URL metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#PersistentURLMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#PersistentURLMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#PrefixInCommunityRegistryMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#PrefixInCommunityRegistryMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the prefix in community registry metric: the ratio between the tests passed and the tests run by the FOOPS! check FIND2, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">prefix in community registry metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#PrefixInCommunityRegistryMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#PrefixInCommunityRegistryMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#PrefixInCommunityRegistryMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#PrefixInCommunityRegistryMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#PrefixInCommunityRegistryMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">prefix in community registry metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#PrefixInCommunityRegistryMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#PrefixInCommunityRegistryMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#RDFAvailabilityMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#RDFAvailabilityMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the RDF availability metric: the ratio between the tests passed and the tests run by the FOOPS! check RDF1, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">RDF availability metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#RDFAvailabilityMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#RDFAvailabilityMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#RDFAvailabilityMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#RDFAvailabilityMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#RDFAvailabilityMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">RDF availability metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#RDFAvailabilityMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#RDFAvailabilityMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#RecommendedMetadataMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#RecommendedMetadataMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the recommended metadata metric: the ratio between the tests passed and the tests run by the FOOPS! check OM2, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">recommended metadata metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#RecommendedMetadataMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#RecommendedMetadataMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#RecommendedMetadataMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#RecommendedMetadataMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#RecommendedMetadataMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">recommended metadata metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#RecommendedMetadataMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#RecommendedMetadataMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#TermDefinitionsMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#TermDefinitionsMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the term definitions metric: the ratio between the tests passed and the tests run by the FOOPS! check VOC4, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">term definitions metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#TermDefinitionsMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#TermDefinitionsMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#TermDefinitionsMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#TermDefinitionsMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#TermDefinitionsMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">term definitions metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#TermDefinitionsMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#TermDefinitionsMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#TermLabelsMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#TermLabelsMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the term labels metric: the ratio between the tests passed and the tests run by the FOOPS! check VOC3, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">term labels metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#TermLabelsMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#TermLabelsMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#TermLabelsMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#TermLabelsMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#TermLabelsMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">term labels metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#TermLabelsMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#TermLabelsMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#VersionIRIDeclaredMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#VersionIRIDeclaredMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the version IRI declared metric: the ratio between the tests passed and the tests run by the FOOPS! check VER1, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">version IRI declared metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#VersionIRIDeclaredMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#VersionIRIDeclaredMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#VersionIRIDeclaredMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#VersionIRIDeclaredMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#VersionIRIDeclaredMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">version IRI declared metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#VersionIRIDeclaredMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#VersionIRIDeclaredMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#VersionIRIResolvableMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#VersionIRIResolvableMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the version IRI resolvable metric: the ratio between the tests passed and the tests run by the FOOPS! check VER2, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">version IRI resolvable metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#VersionIRIResolvableMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#VersionIRIResolvableMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#VersionIRIResolvableMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#VersionIRIResolvableMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#VersionIRIResolvableMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">version IRI resolvable metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#VersionIRIResolvableMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#VersionIRIResolvableMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#VocabularyReuseMetricScale -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#VocabularyReuseMetricScale">
+        <rdf:type rdf:resource="http://www.wurvoc.org/vocabularies/om-1.8/Ratio_scale"/>
+        <rdf:type rdf:resource="https://purl.org/oquo#RawScale"/>
+        <QualityModel:hasRankigFunction rdf:resource="http://purl.org/net/QualityModel#HigherBest"/>
+        <QualityModel:hasLowerBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0</QualityModel:hasLowerBoundary>
+        <QualityModel:hasUpperBoundary rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">1</QualityModel:hasUpperBoundary>
+        <obo:IAO_0000115 xml:lang="en">Raw scale of the vocabulary reuse metric: the ratio between the tests passed and the tests run by the FOOPS! check VOC2, ranging from 0 (no test passed) to 1 (all tests passed).</obo:IAO_0000115>
+        <rdfs:label xml:lang="en">vocabulary reuse metric scale</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#VocabularyReuseMetricScaleToPercentageScaleConversion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#VocabularyReuseMetricScaleToPercentageScaleConversion">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScaleConversion"/>
+        <oquo:hasInputScale rdf:resource="https://purl.org/oquo-foops#VocabularyReuseMetricScale"/>
+        <oquo:hasOutputScale rdf:resource="https://purl.org/oquo-fair-qm#PercentageScale"/>
+        <oquo:hasScalePointMapping rdf:resource="https://purl.org/oquo-foops#VocabularyReuseMetricScaleToPercentageScaleMapping"/>
+        <rdfs:comment xml:lang="en">The definition of the conversion between the scales &lt;https://purl.org/oquo-foops#VocabularyReuseMetricScale&gt; and &lt;https://purl.org/oquo-fair-qm#PercentageScale&gt;.</rdfs:comment>
+        <rdfs:label xml:lang="en">vocabulary reuse metric scale to FAIR percentage scale conversion</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!-- https://purl.org/oquo-foops#VocabularyReuseMetricScaleToPercentageScaleMapping -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#VocabularyReuseMetricScaleToPercentageScaleMapping">
+        <rdf:type rdf:resource="https://purl.org/oquo#CardinalToCardinalScalePointMapping"/>
+        <oquo:hasInputCardinalInterval rdf:resource="https://purl.org/oquo-foops#ClosedUnitInterval"/>
+        <oquo:hasSlope rdf:datatype="http://www.w3.org/2001/XMLSchema#double">100.0</oquo:hasSlope>
+        <oquo:hasIntercept rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</oquo:hasIntercept>
+        <rdfs:label xml:lang="en">mapping [0.0..1.0] -&gt; 100 * x + 0</rdfs:label>
+    </owl:NamedIndividual>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#BasicProvenanceMetadataMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#ConsistentOntologyIDMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#ContentNegotiationMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#DetailedMetadataMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#DetailedProvenanceMetadataMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#HTMLDocumentationMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#LicenseAvailableMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#LicenseResolvableMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#MetadataAccessibleWithoutOntologyMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#MetadataVocabularyReuseMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#MinimumMetadataMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#OntologyInMetadataRegistryMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#OntologyPrefixDeclaredMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#OntologyURIResolvableMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#OpenProtocolMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#PersistentURLMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#PrefixInCommunityRegistryMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#RDFAvailabilityMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#RecommendedMetadataMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#TermDefinitionsMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#TermLabelsMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#VersionIRIDeclaredMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#VersionIRIResolvableMetric"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#VocabularyReuseMetric"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#ContentNegotiationNotSupportedIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#InconsistentOntologyIDIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#LicenseNotResolvableIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#MetadataNotAccessibleWithoutOntologyIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#MissingBasicProvenanceMetadataIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#MissingDetailedMetadataIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#MissingDetailedProvenanceMetadataIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#MissingDistinctVersionIRIIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#MissingMinimumMetadataIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#MissingRecommendedMetadataIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#NoHTMLDocumentationIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#NoLicenseIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#NoMetadataVocabularyReuseIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#NoOpenProtocolIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#NoRDFSerialisationIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#NoVocabularyReuseIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#NonPersistentURIIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#OntologyNotInMetadataRegistryIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#OntologyURINotResolvableIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#PrefixNotDeclaredIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#PrefixNotInCommunityRegistryIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#TermWithNoDefinitionIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#TermWithNoLabelIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#VersionIRINotResolvableIssue"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#OntologyLevelFOOPSIssue"/>
+            <rdf:Description rdf:about="https://purl.org/oquo-foops#TermLevelFOOPSIssue"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
