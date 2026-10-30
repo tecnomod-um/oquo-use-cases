@@ -1,0 +1,1415 @@
+<https://purl.org/oquo#metric-eaaef500-e453-4439-a0f3-ae0cef43af45>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#RDFAvailabilityMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-b375d615-194f-4ff1-b740-55703ea3d2d8> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-1be2207c-ea0c-43d3-8f86-04a43f490529> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#RDFAvailabilityMetricScale> .
+
+<https://purl.org/oquo#issue-04376dfb-267a-46fa-a506-d845772580f2>
+        a       <https://purl.org/oquo-foops#LicenseNotResolvableIssue> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "License or rights not found" ;
+        <http://purl.org/ipo/core#hasHostAsset>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicatedBy>
+                <https://purl.org/oquo#observation-c5f70bda-86bc-4686-bebd-cd01cbca17da> .
+
+<https://purl.org/oquo#instant-8ee391ed-9fad-42a5-aa19-bd8713f509b0>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo-foops#OntologyURIResolvableMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo-foops#PrefixInCommunityRegistryMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo#metric-03239506-82c4-4765-a08b-8c5867e3922e>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#BasicProvenanceMetadataMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-edcb0f16-ab17-4604-a89c-a920c3506620> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-f8decdef-7a1e-4f75-b24e-879ce88d09d7> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#BasicProvenanceMetadataMetricScale> .
+
+<https://purl.org/oquo#instant-49344906-12cf-4931-b81a-4828e8bc7739>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#metric-51828acd-3957-459b-b555-42451c9dc272>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#MetadataVocabularyReuseMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-bce412e9-335a-40a0-b8a0-72fba874be9f> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-4206e0b8-d751-40c5-aaa0-c54e45731595> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#MetadataVocabularyReuseMetricScale> .
+
+<https://purl.org/oquo#evaluation-4650359c-ac8d-44f9-9124-c7376f9c6e8e>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-d1c03205-e7f5-430d-9949-b95e67db283e> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-2f2910f1-6aa3-482d-be61-10aaa80210ed> ;
+        <https://purl.org/oquo#hasDetectedIssue>
+                <https://purl.org/oquo#issue-1b8dc027-d15e-4708-8ac2-2b2e2861c2ef> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-ec3d2505-2e01-4617-8b7d-09640b18acad> .
+
+<https://purl.org/oquo#metric-7fcb93a2-c563-48cf-ae7c-75ddb3aa61f0>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#OntologyInMetadataRegistryMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-dba486ee-8e14-4a21-b8b1-9544811d1ab6> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-8581bbae-b422-4a2a-97bf-c3c7b6580f3e> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#OntologyInMetadataRegistryMetricScale> .
+
+<https://purl.org/oquo#instant-740ce015-9116-4ac3-92da-32a2e83dd4c3>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#instant-2ce4c52c-0bf6-46b8-9b37-19105f2dc84e>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#qualityValue-799ef476-b26d-4187-9280-dcf66709698e>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-4304671d-0f97-4044-b0b3-bd3f5f57fef9> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#DetailedProvenanceMetadataMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-d2c4ad21-d69c-4604-add1-52c59619e879> .
+
+<https://purl.org/oquo#metric-fb4d0a62-6cad-48c5-ae5b-fec0c5d0d0d0>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#OntologyURIResolvableMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-63a60387-923f-408a-9ed7-84fe5520a209> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-c3a5c0a0-5ec7-4a22-be7b-a89ccd265714> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#OntologyURIResolvableMetricScale> .
+
+<https://purl.org/oquo#evaluation-45bedc46-524b-4deb-8460-a1611020989e>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-63a60387-923f-408a-9ed7-84fe5520a209> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-dddfd4ea-ad67-4a8a-a5ed-b503ab3b3ae9> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-c3a5c0a0-5ec7-4a22-be7b-a89ccd265714> .
+
+<https://purl.org/oquo-foops#VersionIRIDeclaredMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo#evaluation-2cbd7f4b-8b98-4071-892f-d2a99e5ad407>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-b375d615-194f-4ff1-b740-55703ea3d2d8> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-a307cc68-9ca6-4d1c-ab72-d3c36a25c1af> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-1be2207c-ea0c-43d3-8f86-04a43f490529> .
+
+<https://purl.org/oquo#instant-509fbaf3-c016-4e5c-9117-974c4444e29d>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#metric-b0c6ead7-c7e6-4890-91cc-fb2d6328b580>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#OntologyPrefixDeclaredMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-c06d024a-4e16-4c9e-aa29-cc3d32c147f7> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-c6fac512-552a-4683-934c-97c4326667f9> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#OntologyPrefixDeclaredMetricScale> .
+
+<https://purl.org/oquo#qualityValue-09f51834-b887-4244-b604-dfd7ec6bc8fb>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-25d48baf-955c-4baa-b465-e3b28e99282f> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#TermLabelsMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-0f26b321-49a5-4287-8c3b-37de2beb0566> .
+
+<https://purl.org/oquo#qualityValue-f63c589b-1ab4-4d9b-a4de-237954b81a1e>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-eb31a8b4-8697-4071-95df-97a38244a687> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "1.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#PersistentURLMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-3290e280-ed97-44f6-becd-cdaa02a2fa3e> .
+
+<https://purl.org/oquo#metric-bff88bff-4385-41d6-b3a6-1afbd8f8f2c7>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#HTMLDocumentationMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-42440919-c017-4906-91be-e3af2fbcc797> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-e41477b9-2d72-4fe0-960e-b9cd722cadc5> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#HTMLDocumentationMetricScale> .
+
+<https://purl.org/oquo#metric-796ff562-345a-482a-9a01-4473a9471067>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#VocabularyReuseMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-1b039490-7b9a-4ef0-8fea-5fcf2e808c05> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-6137457a-d90a-46ee-b273-e9c65bf93501> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#VocabularyReuseMetricScale> .
+
+<https://purl.org/oquo-foops#OpenProtocolMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo-foops#RecommendedMetadataMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo#instant-41710936-40c6-453d-826b-565ab546bb72>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#observation-93e39358-c9fd-4457-888d-030a1a8f2aff>
+        a       <http://purl.org/ipo/core#Symptom> , <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-c5042dbd-67e5-44bb-aa1e-10aa4e1aed67> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicates>
+                <https://purl.org/oquo#issue-7b3a9f50-780f-4f05-a512-0f89fb5fa968> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-9baa6efc-cb6e-4ba4-9120-9a3406113e2d> .
+
+<https://purl.org/oquo-foops#ConsistentOntologyIDMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo#instant-a4264718-1b8f-4670-b37e-c7e630531f11>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#observation-691f9fd0-4219-4bd6-a270-8f142e14029c>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-eb31a8b4-8697-4071-95df-97a38244a687> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-e54788da-80a4-45cc-a003-f6e0058354ae> .
+
+<https://purl.org/oquo#qualityValue-8410332f-6efe-4bb7-8c30-e67f1f97e55b>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-c5042dbd-67e5-44bb-aa1e-10aa4e1aed67> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#RecommendedMetadataMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-36fb528f-b8b4-4e27-927c-ccb694feef02> .
+
+<https://purl.org/oquo#issue-78462201-b28a-4d8e-8781-9dc9653d618c>
+        a       <https://purl.org/oquo-foops#OntologyNotInMetadataRegistryIssue> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Ontology not found in a public registry" ;
+        <http://purl.org/ipo/core#hasHostAsset>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicatedBy>
+                <https://purl.org/oquo#observation-8581bbae-b422-4a2a-97bf-c3c7b6580f3e> .
+
+<https://purl.org/oquo#issue-79d1358a-ae86-401f-bc59-204170bff82b>
+        a       <https://purl.org/oquo-foops#MissingDistinctVersionIRIIssue> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Version IRI  not defined. Version information not found.  Please consider adding it to describe the version number of the ontology." ;
+        <http://purl.org/ipo/core#hasHostAsset>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicatedBy>
+                <https://purl.org/oquo#observation-118612c6-1ad1-497d-9f50-d5b47b56b316> .
+
+<https://purl.org/oquo#observation-e41477b9-2d72-4fe0-960e-b9cd722cadc5>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-bff88bff-4385-41d6-b3a6-1afbd8f8f2c7> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-a4264718-1b8f-4670-b37e-c7e630531f11> .
+
+<https://purl.org/oquo#observation-c3a5c0a0-5ec7-4a22-be7b-a89ccd265714>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-fb4d0a62-6cad-48c5-ae5b-fec0c5d0d0d0> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-dddfd4ea-ad67-4a8a-a5ed-b503ab3b3ae9> .
+
+<https://purl.org/oquo#metric-c5042dbd-67e5-44bb-aa1e-10aa4e1aed67>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#RecommendedMetadataMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-8410332f-6efe-4bb7-8c30-e67f1f97e55b> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-93e39358-c9fd-4457-888d-030a1a8f2aff> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#RecommendedMetadataMetricScale> .
+
+<https://purl.org/oquo#metric-2fd9858c-5b17-49ed-ac25-e48dbf25307f>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#VersionIRIDeclaredMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-ef7176f7-77db-40ca-9bb1-bcac9a95ca08> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-118612c6-1ad1-497d-9f50-d5b47b56b316> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#VersionIRIDeclaredMetricScale> .
+
+<https://purl.org/oquo#qualityValue-edcb0f16-ab17-4604-a89c-a920c3506620>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-03239506-82c4-4765-a08b-8c5867e3922e> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#BasicProvenanceMetadataMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-5ccb5e51-50f5-4702-89e6-0985cb2efb45> .
+
+<https://purl.org/oquo#qualityValue-8acf3b33-7bf1-41f1-a168-c3afa3b59936>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-a0cd6396-db83-4936-b8ac-d70e968b7a99> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "1.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#ConsistentOntologyIDMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-810fa07a-232d-4102-ad5a-37c4dc9d7c4b> .
+
+<https://purl.org/oquo#instant-1e595a5e-255e-4bff-8bcb-f4d5af00ff50>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#evaluation-41380459-1a89-43ef-8982-863147feb99e>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-e73f2d7e-922e-4d20-9dc1-050ae0996fb0> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-2ce4c52c-0bf6-46b8-9b37-19105f2dc84e> ;
+        <https://purl.org/oquo#hasDetectedIssue>
+                <https://purl.org/oquo#issue-cb0c8cd2-b89d-4baf-b432-90fbfd9b2512> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-b550d2b5-35b1-49a4-99f6-dbc1069dab4e> .
+
+<https://purl.org/oquo-foops#ContentNegotiationMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo#evaluation-b40a921b-05f9-4771-87cf-160b67a6cb58>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-dba486ee-8e14-4a21-b8b1-9544811d1ab6> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-49344906-12cf-4931-b81a-4828e8bc7739> ;
+        <https://purl.org/oquo#hasDetectedIssue>
+                <https://purl.org/oquo#issue-78462201-b28a-4d8e-8781-9dc9653d618c> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-8581bbae-b422-4a2a-97bf-c3c7b6580f3e> .
+
+<http://purl.org/net/QualityModel#HigherBest>
+        a       <http://purl.org/net/QualityModel#RankingFunction> .
+
+<https://purl.org/oquo-foops#LicenseAvailableMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo#evaluation-7025cf98-a18a-4da5-b091-2bb0d41b5afb>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-bce412e9-335a-40a0-b8a0-72fba874be9f> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-740ce015-9116-4ac3-92da-32a2e83dd4c3> ;
+        <https://purl.org/oquo#hasDetectedIssue>
+                <https://purl.org/oquo#issue-080ff443-7194-49ba-974f-7c185d5ed0c2> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-4206e0b8-d751-40c5-aaa0-c54e45731595> .
+
+<https://purl.org/oquo#observation-f8decdef-7a1e-4f75-b24e-879ce88d09d7>
+        a       <http://purl.org/ipo/core#Symptom> , <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-03239506-82c4-4765-a08b-8c5867e3922e> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicates>
+                <https://purl.org/oquo#issue-49cda7d6-93cd-4113-a505-956919ad9d20> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-41710936-40c6-453d-826b-565ab546bb72> .
+
+<https://purl.org/oquo#qualityValue-42440919-c017-4906-91be-e3af2fbcc797>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-bff88bff-4385-41d6-b3a6-1afbd8f8f2c7> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "1.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#HTMLDocumentationMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-6b7b90e5-9b70-4e56-b629-25516bf4646c> .
+
+<https://purl.org/oquo#evaluation-15dbccd7-b731-4001-a988-ab6a67ca1bb4>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-25d22299-9e07-4dbb-b77a-c29bca8b947d> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-8ee391ed-9fad-42a5-aa19-bd8713f509b0> ;
+        <https://purl.org/oquo#hasDetectedIssue>
+                <https://purl.org/oquo#issue-078c042e-8271-4d1a-87ea-653a12b1db59> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-ad5380f1-d1ae-4d94-8af6-e5058b41c03f> .
+
+<https://purl.org/oquo#evaluation-2f94ba2d-4289-4464-8f9f-384ef3ef7cfc>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-a4c43f4b-ef51-4e81-8d3f-0cd7803e9aa3> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-b93f66c8-e3f2-4e8e-9ac6-92255c6a8354> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-fb95120e-3bc6-4cf4-8b16-e03e3db0adb6> .
+
+<https://purl.org/oquo#observation-6137457a-d90a-46ee-b273-e9c65bf93501>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-796ff562-345a-482a-9a01-4473a9471067> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-b60d703a-1a18-42c9-b207-7a80b6af0b75> .
+
+<https://purl.org/oquo#metric-856f8771-f832-4344-84cc-14244a242fab>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#LicenseAvailableMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-896961bf-52c6-43d5-9a65-f4a826f46737> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-eb7687fe-c640-40e7-b42e-ab54def0bff6> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#LicenseAvailableMetricScale> .
+
+<https://purl.org/oquo#evaluation-ccfa2456-ccaf-4a84-8b9e-ca49eaa5319f>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-634f2c72-6742-464c-920d-9dbbfa2e6c1d> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-268cd30e-f4cd-4edc-aad9-e4a0115a4935> ;
+        <https://purl.org/oquo#hasDetectedIssue>
+                <https://purl.org/oquo#issue-66e049e4-fec9-4f5d-9cce-63e740936ff5> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-129fee79-dcde-4402-aefa-6b70ebc36dcc> .
+
+<https://purl.org/oquo#issue-078c042e-8271-4d1a-87ea-653a12b1db59>
+        a       <https://purl.org/oquo-foops#MetadataNotAccessibleWithoutOntologyIssue> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Ontology not found in a public registry" ;
+        <http://purl.org/ipo/core#hasHostAsset>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicatedBy>
+                <https://purl.org/oquo#observation-ad5380f1-d1ae-4d94-8af6-e5058b41c03f> .
+
+<https://purl.org/oquo#observation-47156244-efdf-4b49-bb7c-3240535cd994>
+        a       <http://purl.org/ipo/core#Symptom> , <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-25d48baf-955c-4baa-b465-e3b28e99282f> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicates>
+                <https://purl.org/oquo#issue-34846605-a66f-40e6-b89a-f6c59ba6f4ab> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-3fef6659-2ee7-4324-a73e-1187f4a998f0> .
+
+<https://purl.org/oquo#issue-5f74e795-d7ee-4335-84d4-ada4113a721b>
+        a       <https://purl.org/oquo-foops#MissingMinimumMetadataIssue> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The following metadata was not found: title, description, license, version iri, author, namespace URI" ;
+        <http://purl.org/ipo/core#hasHostAsset>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicatedBy>
+                <https://purl.org/oquo#observation-55ce0935-ec0d-4e1a-b9d1-21c357869c41> .
+
+<https://purl.org/oquo#observation-2bb4ba42-bec6-4dd9-a448-74474191251b>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-a0cd6396-db83-4936-b8ac-d70e968b7a99> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-6498ba60-4e6b-40ca-9cf2-c1cc3906ebeb> .
+
+<https://purl.org/oquo#qualityValue-dba486ee-8e14-4a21-b8b1-9544811d1ab6>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-7fcb93a2-c563-48cf-ae7c-75ddb3aa61f0> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#OntologyInMetadataRegistryMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-b40a921b-05f9-4771-87cf-160b67a6cb58> .
+
+<https://purl.org/oquo#instant-cd06725a-1081-4822-85d3-fa5204fb39dd>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#qualityValue-1b039490-7b9a-4ef0-8fea-5fcf2e808c05>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-796ff562-345a-482a-9a01-4473a9471067> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "1.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#VocabularyReuseMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-2936cae7-2efa-4a9b-9f9f-e0f0e336db1c> .
+
+<https://purl.org/oquo#evaluation-f2a0ce6e-b56a-47a0-b262-2125bd838ad4>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-ef7176f7-77db-40ca-9bb1-bcac9a95ca08> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-bd05a711-2ed4-43d3-a4ba-973f937207ae> ;
+        <https://purl.org/oquo#hasDetectedIssue>
+                <https://purl.org/oquo#issue-79d1358a-ae86-401f-bc59-204170bff82b> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-118612c6-1ad1-497d-9f50-d5b47b56b316> .
+
+<https://purl.org/oquo#evaluation-0aec0d72-48c3-43a0-a956-fce8f8c967d1>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-896961bf-52c6-43d5-9a65-f4a826f46737> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-ecf21ebf-9ed0-4b62-9184-0621c2dfc799> ;
+        <https://purl.org/oquo#hasDetectedIssue>
+                <https://purl.org/oquo#issue-ac623254-9a7a-4ac9-8ffb-d18d1c870119> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-eb7687fe-c640-40e7-b42e-ab54def0bff6> .
+
+<https://purl.org/oquo#observation-4206e0b8-d751-40c5-aaa0-c54e45731595>
+        a       <http://purl.org/ipo/core#Symptom> , <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-51828acd-3957-459b-b555-42451c9dc272> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicates>
+                <https://purl.org/oquo#issue-080ff443-7194-49ba-974f-7c185d5ed0c2> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-740ce015-9116-4ac3-92da-32a2e83dd4c3> .
+
+<https://purl.org/oquo#instant-7a20f32b-f4f4-4926-bb87-f7374bc5ea44>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#evaluation-6b7b90e5-9b70-4e56-b629-25516bf4646c>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-42440919-c017-4906-91be-e3af2fbcc797> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-a4264718-1b8f-4670-b37e-c7e630531f11> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-e41477b9-2d72-4fe0-960e-b9cd722cadc5> .
+
+<https://purl.org/oquo#evaluation-d2c4ad21-d69c-4604-add1-52c59619e879>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-799ef476-b26d-4187-9280-dcf66709698e> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-7f143891-3684-4167-9e1f-0c8e22545053> ;
+        <https://purl.org/oquo#hasDetectedIssue>
+                <https://purl.org/oquo#issue-8420bff1-c219-4c21-9d82-1b4f0e2e3154> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-ff94c64d-1e6c-4e25-8ad1-b8329e6f12d1> .
+
+<https://purl.org/oquo-foops#BasicProvenanceMetadataMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo#instant-6498ba60-4e6b-40ca-9cf2-c1cc3906ebeb>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#instant-7f143891-3684-4167-9e1f-0c8e22545053>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#evaluation-970f20e7-c93d-4e3d-bb47-43c0e33d3d35>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-a6369ecd-dc1c-48e6-818e-fb30d5807672> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-06f2f7cf-5003-4ce4-90d7-ec24a90baa34> ;
+        <https://purl.org/oquo#hasDetectedIssue>
+                <https://purl.org/oquo#issue-04376dfb-267a-46fa-a506-d845772580f2> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-c5f70bda-86bc-4686-bebd-cd01cbca17da> .
+
+<https://purl.org/oquo#metric-a0cd6396-db83-4936-b8ac-d70e968b7a99>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#ConsistentOntologyIDMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-8acf3b33-7bf1-41f1-a168-c3afa3b59936> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-2bb4ba42-bec6-4dd9-a448-74474191251b> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#ConsistentOntologyIDMetricScale> .
+
+<https://purl.org/oquo#issue-7b3a9f50-780f-4f05-a512-0f89fb5fa968>
+        a       <https://purl.org/oquo-foops#MissingRecommendedMetadataIssue> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The following metadata was not found: namespace prefix, version info, creation date, citation. Warning: The following OPTIONAL recommended metadata could not be found: contributor. Please consider adding them if appropriate." ;
+        <http://purl.org/ipo/core#hasHostAsset>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicatedBy>
+                <https://purl.org/oquo#observation-93e39358-c9fd-4457-888d-030a1a8f2aff> .
+
+<https://purl.org/oquo#qualityValue-634f2c72-6742-464c-920d-9dbbfa2e6c1d>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-c9d24574-617f-4fb7-8836-a107de84b97b> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#DetailedMetadataMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-ccfa2456-ccaf-4a84-8b9e-ca49eaa5319f> .
+
+<https://purl.org/oquo#instant-b60d703a-1a18-42c9-b207-7a80b6af0b75>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#issue-ac623254-9a7a-4ac9-8ffb-d18d1c870119>
+        a       <https://purl.org/oquo-foops#NoLicenseIssue> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "License or rights not found" ;
+        <http://purl.org/ipo/core#hasHostAsset>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicatedBy>
+                <https://purl.org/oquo#observation-eb7687fe-c640-40e7-b42e-ab54def0bff6> .
+
+<https://purl.org/oquo#observation-ad5380f1-d1ae-4d94-8af6-e5058b41c03f>
+        a       <http://purl.org/ipo/core#Symptom> , <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-e70c6e6e-b3c3-464a-b42a-edcfa9aed1f1> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicates>
+                <https://purl.org/oquo#issue-078c042e-8271-4d1a-87ea-653a12b1db59> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-8ee391ed-9fad-42a5-aa19-bd8713f509b0> .
+
+<https://purl.org/oquo#evaluation-36fb528f-b8b4-4e27-927c-ccb694feef02>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-8410332f-6efe-4bb7-8c30-e67f1f97e55b> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-9baa6efc-cb6e-4ba4-9120-9a3406113e2d> ;
+        <https://purl.org/oquo#hasDetectedIssue>
+                <https://purl.org/oquo#issue-7b3a9f50-780f-4f05-a512-0f89fb5fa968> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-93e39358-c9fd-4457-888d-030a1a8f2aff> .
+
+<https://purl.org/oquo-foops#OntologyPrefixDeclaredMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo#qualityValue-8e785f68-9523-4192-8eec-25e1110ab45a>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-ab64aafb-477b-4b36-a82d-f5f4f92c165a> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#MinimumMetadataMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-4210b50a-aad6-4c8a-9583-64062c0f0ce6> .
+
+<https://purl.org/oquo-foops#VocabularyReuseMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo#instant-3fef6659-2ee7-4324-a73e-1187f4a998f0>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo-foops#PersistentURLMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo#metric-897bdcbf-aae1-4fa0-b340-dfb4d27bea8e>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#OpenProtocolMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-a4c43f4b-ef51-4e81-8d3f-0cd7803e9aa3> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-fb95120e-3bc6-4cf4-8b16-e03e3db0adb6> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#OpenProtocolMetricScale> .
+
+<https://purl.org/oquo#metric-ab64aafb-477b-4b36-a82d-f5f4f92c165a>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#MinimumMetadataMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-8e785f68-9523-4192-8eec-25e1110ab45a> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-55ce0935-ec0d-4e1a-b9d1-21c357869c41> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#MinimumMetadataMetricScale> .
+
+<https://purl.org/oquo#issue-3dff4153-b1bb-45ad-bbcf-da4ac420c4d4>
+        a       <https://purl.org/oquo-foops#TermWithNoDefinitionIssue> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "No ontology terms found" ;
+        <http://purl.org/ipo/core#hasHostAsset>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicatedBy>
+                <https://purl.org/oquo#observation-6a4e7e4e-4533-4c04-b3a7-966165f5f537> .
+
+<https://purl.org/oquo#qualityValue-c06d024a-4e16-4c9e-aa29-cc3d32c147f7>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-b0c6ead7-c7e6-4890-91cc-fb2d6328b580> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#OntologyPrefixDeclaredMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-53339a84-315f-4c51-99fe-47ad2de6ea0b> .
+
+<https://purl.org/oquo#evaluation-3290e280-ed97-44f6-becd-cdaa02a2fa3e>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-f63c589b-1ab4-4d9b-a4de-237954b81a1e> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-e54788da-80a4-45cc-a003-f6e0058354ae> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-691f9fd0-4219-4bd6-a270-8f142e14029c> .
+
+<https://purl.org/oquo#qualityValue-25d22299-9e07-4dbb-b77a-c29bca8b947d>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-e70c6e6e-b3c3-464a-b42a-edcfa9aed1f1> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#MetadataAccessibleWithoutOntologyMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-15dbccd7-b731-4001-a988-ab6a67ca1bb4> .
+
+<https://purl.org/oquo#issue-66e049e4-fec9-4f5d-9cce-63e740936ff5>
+        a       <https://purl.org/oquo-foops#MissingDetailedMetadataIssue> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The following metadata was not found: doi, publisher, logo, status, source, issued. Warning: The following OPTIONAL detailed metadata could not be found: previous version, backwards compatibility, modified. Please consider adding them if appropriate." ;
+        <http://purl.org/ipo/core#hasHostAsset>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicatedBy>
+                <https://purl.org/oquo#observation-129fee79-dcde-4402-aefa-6b70ebc36dcc> .
+
+<https://purl.org/oquo-foops#MetadataAccessibleWithoutOntologyMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo#metric-e70c6e6e-b3c3-464a-b42a-edcfa9aed1f1>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#MetadataAccessibleWithoutOntologyMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-25d22299-9e07-4dbb-b77a-c29bca8b947d> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-ad5380f1-d1ae-4d94-8af6-e5058b41c03f> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#MetadataAccessibleWithoutOntologyMetricScale> .
+
+<https://purl.org/oquo#qualityValue-63a60387-923f-408a-9ed7-84fe5520a209>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-fb4d0a62-6cad-48c5-ae5b-fec0c5d0d0d0> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "1.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#OntologyURIResolvableMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-45bedc46-524b-4deb-8460-a1611020989e> .
+
+<https://purl.org/oquo#instant-9baa6efc-cb6e-4ba4-9120-9a3406113e2d>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#qualityValue-4ddf858e-cba1-4200-a271-b53eaa5c1c27>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-c576f6d6-5b06-4837-b3dd-fe13f3b1efff> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#TermDefinitionsMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-37cbd9d2-b36c-41d2-a1a3-a2897e02521d> .
+
+<https://purl.org/oquo#evaluation-810fa07a-232d-4102-ad5a-37c4dc9d7c4b>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-8acf3b33-7bf1-41f1-a168-c3afa3b59936> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-6498ba60-4e6b-40ca-9cf2-c1cc3906ebeb> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-2bb4ba42-bec6-4dd9-a448-74474191251b> .
+
+<https://purl.org/oquo#metric-386e438d-21d4-45b8-b7a4-766268a8bdc1>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#LicenseResolvableMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-a6369ecd-dc1c-48e6-818e-fb30d5807672> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-c5f70bda-86bc-4686-bebd-cd01cbca17da> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#LicenseResolvableMetricScale> .
+
+<https://purl.org/oquo#metric-5e26ac97-a0bd-4d78-a441-52ad97e8b8bf>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#ContentNegotiationMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-49a3d93c-a4e6-4ff0-b342-8a6b57ff4670> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-16c9891e-9033-4511-afd6-f71a6ea20827> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#ContentNegotiationMetricScale> .
+
+<https://purl.org/oquo#instant-bd05a711-2ed4-43d3-a4ba-973f937207ae>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#instant-06f2f7cf-5003-4ce4-90d7-ec24a90baa34>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#issue-cb0c8cd2-b89d-4baf-b432-90fbfd9b2512>
+        a       <https://purl.org/oquo-foops#PrefixNotInCommunityRegistryIssue> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "No prefix declared in the ontology" ;
+        <http://purl.org/ipo/core#hasHostAsset>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicatedBy>
+                <https://purl.org/oquo#observation-b550d2b5-35b1-49a4-99f6-dbc1069dab4e> .
+
+<https://purl.org/oquo-foops#TermDefinitionsMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo#instant-268cd30e-f4cd-4edc-aad9-e4a0115a4935>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo-foops#MinimumMetadataMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo#metric-b727ca60-4ce5-4c6b-b7a2-661317d4c140>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#VersionIRIResolvableMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-d1c03205-e7f5-430d-9949-b95e67db283e> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-ec3d2505-2e01-4617-8b7d-09640b18acad> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#VersionIRIResolvableMetricScale> .
+
+<https://purl.org/oquo#evaluation-2936cae7-2efa-4a9b-9f9f-e0f0e336db1c>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-1b039490-7b9a-4ef0-8fea-5fcf2e808c05> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-b60d703a-1a18-42c9-b207-7a80b6af0b75> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-6137457a-d90a-46ee-b273-e9c65bf93501> .
+
+<https://purl.org/oquo#qualityValue-ef7176f7-77db-40ca-9bb1-bcac9a95ca08>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-2fd9858c-5b17-49ed-ac25-e48dbf25307f> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#VersionIRIDeclaredMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-f2a0ce6e-b56a-47a0-b262-2125bd838ad4> .
+
+<https://purl.org/oquo#qualityValue-b375d615-194f-4ff1-b740-55703ea3d2d8>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-eaaef500-e453-4439-a0f3-ae0cef43af45> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "1.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#RDFAvailabilityMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-2cbd7f4b-8b98-4071-892f-d2a99e5ad407> .
+
+<https://purl.org/oquo-foops#TermLabelsMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo-foops#OntologyInMetadataRegistryMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo#observation-fb95120e-3bc6-4cf4-8b16-e03e3db0adb6>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-897bdcbf-aae1-4fa0-b340-dfb4d27bea8e> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-b93f66c8-e3f2-4e8e-9ac6-92255c6a8354> .
+
+<https://purl.org/oquo#observation-eb7687fe-c640-40e7-b42e-ab54def0bff6>
+        a       <http://purl.org/ipo/core#Symptom> , <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-856f8771-f832-4344-84cc-14244a242fab> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicates>
+                <https://purl.org/oquo#issue-ac623254-9a7a-4ac9-8ffb-d18d1c870119> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-ecf21ebf-9ed0-4b62-9184-0621c2dfc799> .
+
+<https://purl.org/oquo-foops#RDFAvailabilityMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo#issue-0a4cc3aa-2380-4547-9e41-27061fcbf967>
+        a       <https://purl.org/oquo-foops#PrefixNotDeclaredIssue> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Prefix declaration not found in the ontology" ;
+        <http://purl.org/ipo/core#hasHostAsset>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicatedBy>
+                <https://purl.org/oquo#observation-c6fac512-552a-4683-934c-97c4326667f9> .
+
+<https://purl.org/oquo#observation-c5f70bda-86bc-4686-bebd-cd01cbca17da>
+        a       <http://purl.org/ipo/core#Symptom> , <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-386e438d-21d4-45b8-b7a4-766268a8bdc1> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicates>
+                <https://purl.org/oquo#issue-04376dfb-267a-46fa-a506-d845772580f2> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-06f2f7cf-5003-4ce4-90d7-ec24a90baa34> .
+
+<https://purl.org/oquo#issue-1b8dc027-d15e-4708-8ac2-2b2e2861c2ef>
+        a       <https://purl.org/oquo-foops#VersionIRINotResolvableIssue> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "Version IRI is not available, so it could not be resolved" ;
+        <http://purl.org/ipo/core#hasHostAsset>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicatedBy>
+                <https://purl.org/oquo#observation-ec3d2505-2e01-4617-8b7d-09640b18acad> .
+
+<https://purl.org/oquo#instant-a307cc68-9ca6-4d1c-ab72-d3c36a25c1af>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#qualityValue-a4c43f4b-ef51-4e81-8d3f-0cd7803e9aa3>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-897bdcbf-aae1-4fa0-b340-dfb4d27bea8e> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "1.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#OpenProtocolMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-2f94ba2d-4289-4464-8f9f-384ef3ef7cfc> .
+
+<https://purl.org/oquo#evaluation-4210b50a-aad6-4c8a-9583-64062c0f0ce6>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-8e785f68-9523-4192-8eec-25e1110ab45a> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-7a20f32b-f4f4-4926-bb87-f7374bc5ea44> ;
+        <https://purl.org/oquo#hasDetectedIssue>
+                <https://purl.org/oquo#issue-5f74e795-d7ee-4335-84d4-ada4113a721b> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-55ce0935-ec0d-4e1a-b9d1-21c357869c41> .
+
+<https://purl.org/oquo-foops#DetailedMetadataMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo-foops#HTMLDocumentationMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo#evaluation-37cbd9d2-b36c-41d2-a1a3-a2897e02521d>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-4ddf858e-cba1-4200-a271-b53eaa5c1c27> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-1e595a5e-255e-4bff-8bcb-f4d5af00ff50> ;
+        <https://purl.org/oquo#hasDetectedIssue>
+                <https://purl.org/oquo#issue-3dff4153-b1bb-45ad-bbcf-da4ac420c4d4> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-6a4e7e4e-4533-4c04-b3a7-966165f5f537> .
+
+<https://purl.org/oquo-foops#DetailedProvenanceMetadataMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo-foops#LicenseResolvableMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo#observation-118612c6-1ad1-497d-9f50-d5b47b56b316>
+        a       <http://purl.org/ipo/core#Symptom> , <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-2fd9858c-5b17-49ed-ac25-e48dbf25307f> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicates>
+                <https://purl.org/oquo#issue-79d1358a-ae86-401f-bc59-204170bff82b> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-bd05a711-2ed4-43d3-a4ba-973f937207ae> .
+
+<https://purl.org/oquo#evaluation-5ccb5e51-50f5-4702-89e6-0985cb2efb45>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-edcb0f16-ab17-4604-a89c-a920c3506620> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-41710936-40c6-453d-826b-565ab546bb72> ;
+        <https://purl.org/oquo#hasDetectedIssue>
+                <https://purl.org/oquo#issue-49cda7d6-93cd-4113-a505-956919ad9d20> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-f8decdef-7a1e-4f75-b24e-879ce88d09d7> .
+
+<https://purl.org/oquo#observation-55ce0935-ec0d-4e1a-b9d1-21c357869c41>
+        a       <http://purl.org/ipo/core#Symptom> , <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-ab64aafb-477b-4b36-a82d-f5f4f92c165a> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicates>
+                <https://purl.org/oquo#issue-5f74e795-d7ee-4335-84d4-ada4113a721b> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-7a20f32b-f4f4-4926-bb87-f7374bc5ea44> .
+
+<https://purl.org/oquo#instant-e54788da-80a4-45cc-a003-f6e0058354ae>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#instant-ecf21ebf-9ed0-4b62-9184-0621c2dfc799>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#issue-080ff443-7194-49ba-974f-7c185d5ed0c2>
+        a       <https://purl.org/oquo-foops#NoMetadataVocabularyReuseIssue> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The ontology does not reuse vocabularies for common metadata" ;
+        <http://purl.org/ipo/core#hasHostAsset>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicatedBy>
+                <https://purl.org/oquo#observation-4206e0b8-d751-40c5-aaa0-c54e45731595> .
+
+<https://purl.org/oquo#observation-c6fac512-552a-4683-934c-97c4326667f9>
+        a       <http://purl.org/ipo/core#Symptom> , <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-b0c6ead7-c7e6-4890-91cc-fb2d6328b580> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicates>
+                <https://purl.org/oquo#issue-0a4cc3aa-2380-4547-9e41-27061fcbf967> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-cd06725a-1081-4822-85d3-fa5204fb39dd> .
+
+<https://purl.org/oquo-core>
+        a       <http://purl.org/net/EvaluationResult#EvaluationSubject> , <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Entity> , <http://purl.org/ipo/core#Asset> , <http://www.w3.org/2002/07/owl#Ontology> ;
+        <http://purl.org/ipo/core#hostAssetOf>
+                <https://purl.org/oquo#issue-1b8dc027-d15e-4708-8ac2-2b2e2861c2ef> , <https://purl.org/oquo#issue-04376dfb-267a-46fa-a506-d845772580f2> , <https://purl.org/oquo#issue-3dff4153-b1bb-45ad-bbcf-da4ac420c4d4> , <https://purl.org/oquo#issue-78462201-b28a-4d8e-8781-9dc9653d618c> , <https://purl.org/oquo#issue-49cda7d6-93cd-4113-a505-956919ad9d20> , <https://purl.org/oquo#issue-8420bff1-c219-4c21-9d82-1b4f0e2e3154> , <https://purl.org/oquo#issue-cb0c8cd2-b89d-4baf-b432-90fbfd9b2512> , <https://purl.org/oquo#issue-7b3a9f50-780f-4f05-a512-0f89fb5fa968> , <https://purl.org/oquo#issue-080ff443-7194-49ba-974f-7c185d5ed0c2> , <https://purl.org/oquo#issue-66e049e4-fec9-4f5d-9cce-63e740936ff5> , <https://purl.org/oquo#issue-5f74e795-d7ee-4335-84d4-ada4113a721b> , <https://purl.org/oquo#issue-078c042e-8271-4d1a-87ea-653a12b1db59> , <https://purl.org/oquo#issue-79d1358a-ae86-401f-bc59-204170bff82b> , <https://purl.org/oquo#issue-ac623254-9a7a-4ac9-8ffb-d18d1c870119> , <https://purl.org/oquo#issue-34846605-a66f-40e6-b89a-f6c59ba6f4ab> , <https://purl.org/oquo#issue-0a4cc3aa-2380-4547-9e41-27061fcbf967> .
+
+<https://purl.org/oquo#evaluation-53339a84-315f-4c51-99fe-47ad2de6ea0b>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-c06d024a-4e16-4c9e-aa29-cc3d32c147f7> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-cd06725a-1081-4822-85d3-fa5204fb39dd> ;
+        <https://purl.org/oquo#hasDetectedIssue>
+                <https://purl.org/oquo#issue-0a4cc3aa-2380-4547-9e41-27061fcbf967> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-c6fac512-552a-4683-934c-97c4326667f9> .
+
+<https://purl.org/oquo#qualityValue-e73f2d7e-922e-4d20-9dc1-050ae0996fb0>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-3d4aa808-2ebb-43aa-9a73-4e57cf9c3acc> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#PrefixInCommunityRegistryMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-41380459-1a89-43ef-8982-863147feb99e> .
+
+<https://purl.org/oquo#qualityValue-bce412e9-335a-40a0-b8a0-72fba874be9f>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-51828acd-3957-459b-b555-42451c9dc272> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#MetadataVocabularyReuseMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-7025cf98-a18a-4da5-b091-2bb0d41b5afb> .
+
+<https://purl.org/oquo#qualityValue-a6369ecd-dc1c-48e6-818e-fb30d5807672>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-386e438d-21d4-45b8-b7a4-766268a8bdc1> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#LicenseResolvableMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-970f20e7-c93d-4e3d-bb47-43c0e33d3d35> .
+
+<https://purl.org/oquo-foops#VersionIRIResolvableMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo#observation-b550d2b5-35b1-49a4-99f6-dbc1069dab4e>
+        a       <http://purl.org/ipo/core#Symptom> , <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-3d4aa808-2ebb-43aa-9a73-4e57cf9c3acc> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicates>
+                <https://purl.org/oquo#issue-cb0c8cd2-b89d-4baf-b432-90fbfd9b2512> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-2ce4c52c-0bf6-46b8-9b37-19105f2dc84e> .
+
+<https://purl.org/oquo#observation-6a4e7e4e-4533-4c04-b3a7-966165f5f537>
+        a       <http://purl.org/ipo/core#Symptom> , <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-c576f6d6-5b06-4837-b3dd-fe13f3b1efff> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicates>
+                <https://purl.org/oquo#issue-3dff4153-b1bb-45ad-bbcf-da4ac420c4d4> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-1e595a5e-255e-4bff-8bcb-f4d5af00ff50> .
+
+<https://purl.org/oquo#instant-b93f66c8-e3f2-4e8e-9ac6-92255c6a8354>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#qualityValue-49a3d93c-a4e6-4ff0-b342-8a6b57ff4670>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-5e26ac97-a0bd-4d78-a441-52ad97e8b8bf> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "1.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#ContentNegotiationMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-31be47a7-18d8-460e-aaf2-33bf321246dc> .
+
+<https://purl.org/oquo#evaluation-31be47a7-18d8-460e-aaf2-33bf321246dc>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-49a3d93c-a4e6-4ff0-b342-8a6b57ff4670> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-509fbaf3-c016-4e5c-9117-974c4444e29d> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-16c9891e-9033-4511-afd6-f71a6ea20827> .
+
+<https://purl.org/oquo#metric-25d48baf-955c-4baa-b465-e3b28e99282f>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#TermLabelsMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-09f51834-b887-4244-b604-dfd7ec6bc8fb> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-47156244-efdf-4b49-bb7c-3240535cd994> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#TermLabelsMetricScale> .
+
+<https://purl.org/oquo#qualityValue-d1c03205-e7f5-430d-9949-b95e67db283e>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-b727ca60-4ce5-4c6b-b7a2-661317d4c140> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#VersionIRIResolvableMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-4650359c-ac8d-44f9-9124-c7376f9c6e8e> .
+
+<https://purl.org/oquo#metric-4304671d-0f97-4044-b0b3-bd3f5f57fef9>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#DetailedProvenanceMetadataMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-799ef476-b26d-4187-9280-dcf66709698e> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-ff94c64d-1e6c-4e25-8ad1-b8329e6f12d1> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#DetailedProvenanceMetadataMetricScale> .
+
+<https://purl.org/oquo#observation-1be2207c-ea0c-43d3-8f86-04a43f490529>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-eaaef500-e453-4439-a0f3-ae0cef43af45> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-a307cc68-9ca6-4d1c-ab72-d3c36a25c1af> .
+
+<https://purl.org/oquo#evaluation-0f26b321-49a5-4287-8c3b-37de2beb0566>
+        a       <http://purl.org/net/EvaluationResult#Evaluation> ;
+        <http://purl.org/net/EvaluationResult#evaluatedSubject>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/net/EvaluationResult#producedQualityValue>
+                <https://purl.org/oquo#qualityValue-09f51834-b887-4244-b604-dfd7ec6bc8fb> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-3fef6659-2ee7-4324-a73e-1187f4a998f0> ;
+        <https://purl.org/oquo#hasDetectedIssue>
+                <https://purl.org/oquo#issue-34846605-a66f-40e6-b89a-f6c59ba6f4ab> ;
+        <https://purl.org/oquo#hasObservation>
+                <https://purl.org/oquo#observation-47156244-efdf-4b49-bb7c-3240535cd994> .
+
+<https://purl.org/oquo#metric-eb31a8b4-8697-4071-95df-97a38244a687>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#PersistentURLMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-f63c589b-1ab4-4d9b-a4de-237954b81a1e> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-691f9fd0-4219-4bd6-a270-8f142e14029c> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#PersistentURLMetricScale> .
+
+<https://purl.org/oquo#observation-ff94c64d-1e6c-4e25-8ad1-b8329e6f12d1>
+        a       <http://purl.org/ipo/core#Symptom> , <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-4304671d-0f97-4044-b0b3-bd3f5f57fef9> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicates>
+                <https://purl.org/oquo#issue-8420bff1-c219-4c21-9d82-1b4f0e2e3154> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-7f143891-3684-4167-9e1f-0c8e22545053> .
+
+<https://purl.org/oquo#instant-2f2910f1-6aa3-482d-be61-10aaa80210ed>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#observation-ec3d2505-2e01-4617-8b7d-09640b18acad>
+        a       <http://purl.org/ipo/core#Symptom> , <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-b727ca60-4ce5-4c6b-b7a2-661317d4c140> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicates>
+                <https://purl.org/oquo#issue-1b8dc027-d15e-4708-8ac2-2b2e2861c2ef> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-2f2910f1-6aa3-482d-be61-10aaa80210ed> .
+
+<https://purl.org/oquo#metric-3d4aa808-2ebb-43aa-9a73-4e57cf9c3acc>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#PrefixInCommunityRegistryMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-e73f2d7e-922e-4d20-9dc1-050ae0996fb0> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-b550d2b5-35b1-49a4-99f6-dbc1069dab4e> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#PrefixInCommunityRegistryMetricScale> .
+
+<https://purl.org/oquo#metric-c9d24574-617f-4fb7-8836-a107de84b97b>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#DetailedMetadataMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-634f2c72-6742-464c-920d-9dbbfa2e6c1d> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-129fee79-dcde-4402-aefa-6b70ebc36dcc> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#DetailedMetadataMetricScale> .
+
+<https://purl.org/oquo#observation-129fee79-dcde-4402-aefa-6b70ebc36dcc>
+        a       <http://purl.org/ipo/core#Symptom> , <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-c9d24574-617f-4fb7-8836-a107de84b97b> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicates>
+                <https://purl.org/oquo#issue-66e049e4-fec9-4f5d-9cce-63e740936ff5> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-268cd30e-f4cd-4edc-aad9-e4a0115a4935> .
+
+<https://purl.org/oquo#observation-8581bbae-b422-4a2a-97bf-c3c7b6580f3e>
+        a       <http://purl.org/ipo/core#Symptom> , <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-7fcb93a2-c563-48cf-ae7c-75ddb3aa61f0> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicates>
+                <https://purl.org/oquo#issue-78462201-b28a-4d8e-8781-9dc9653d618c> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-49344906-12cf-4931-b81a-4828e8bc7739> .
+
+<https://purl.org/oquo#issue-49cda7d6-93cd-4113-a505-956919ad9d20>
+        a       <https://purl.org/oquo-foops#MissingBasicProvenanceMetadataIssue> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The following provenance information was not found: creation date, author. Warning: The following OPTIONAL provenance metadata could not be found: contributor, previous version. Please consider adding them if appropriate." ;
+        <http://purl.org/ipo/core#hasHostAsset>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicatedBy>
+                <https://purl.org/oquo#observation-f8decdef-7a1e-4f75-b24e-879ce88d09d7> .
+
+<https://purl.org/oquo#issue-34846605-a66f-40e6-b89a-f6c59ba6f4ab>
+        a       <https://purl.org/oquo-foops#TermWithNoLabelIssue> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "No ontology terms found" ;
+        <http://purl.org/ipo/core#hasHostAsset>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicatedBy>
+                <https://purl.org/oquo#observation-47156244-efdf-4b49-bb7c-3240535cd994> .
+
+<https://purl.org/oquo#metric-c576f6d6-5b06-4837-b3dd-fe13f3b1efff>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Measurement> , <https://purl.org/oquo-foops#TermDefinitionsMetric> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasValue>
+                <https://purl.org/oquo#qualityValue-4ddf858e-cba1-4200-a271-b53eaa5c1c27> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#measurementFor>
+                <https://purl.org/oquo#observation-6a4e7e4e-4533-4c04-b3a7-966165f5f537> ;
+        <http://purl.org/net/QualityModel#hasScale>
+                <https://purl.org/oquo-foops#TermDefinitionsMetricScale> .
+
+<https://purl.org/oquo#instant-dddfd4ea-ad67-4a8a-a5ed-b503ab3b3ae9>
+        a       <http://www.w3.org/2006/time#Instant> ;
+        <http://www.w3.org/2006/time#inXSDDateTime>
+                "2026-10-30T10:47:28Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+
+<https://purl.org/oquo#qualityValue-896961bf-52c6-43d5-9a65-f4a826f46737>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#MeasuredValue> , <http://purl.org/net/EvaluationResult#QualityValue> ;
+        <http://purl.org/net/EvaluationResult#forMeasure>
+                <https://purl.org/oquo#metric-856f8771-f832-4344-84cc-14244a242fab> ;
+        <http://purl.org/net/EvaluationResult#hasLiteralValue>
+                "0.0"^^<http://www.w3.org/2001/XMLSchema#double> ;
+        <http://purl.org/net/EvaluationResult#isMeasuredOnScale>
+                <https://purl.org/oquo-foops#LicenseAvailableMetricScale> ;
+        <http://purl.org/net/EvaluationResult#obtainedFrom>
+                <https://purl.org/oquo#evaluation-0aec0d72-48c3-43a0-a956-fce8f8c967d1> .
+
+<https://purl.org/oquo#observation-16c9891e-9033-4511-afd6-f71a6ea20827>
+        a       <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#Observation> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#hasMeasurement>
+                <https://purl.org/oquo#metric-5e26ac97-a0bd-4d78-a441-52ad97e8b8bf> ;
+        <http://ecoinformatics.org/oboe/oboe.1.2/oboe-core.owl#ofEntity>
+                <https://purl.org/oquo-core> ;
+        <http://www.w3.org/2006/time#hasTime>
+                <https://purl.org/oquo#instant-509fbaf3-c016-4e5c-9117-974c4444e29d> .
+
+<https://purl.org/oquo-foops#MetadataVocabularyReuseMetricScale>
+        a       <https://purl.org/oquo#RawScale> ;
+        <http://purl.org/net/QualityModel#hasRankigFunction>
+                <http://purl.org/net/QualityModel#HigherBest> .
+
+<https://purl.org/oquo#issue-8420bff1-c219-4c21-9d82-1b4f0e2e3154>
+        a       <https://purl.org/oquo-foops#MissingDetailedProvenanceMetadataIssue> ;
+        <http://www.w3.org/2000/01/rdf-schema#comment>
+                "The following provenance information was not found: issued, publisher" ;
+        <http://purl.org/ipo/core#hasHostAsset>
+                <https://purl.org/oquo-core> ;
+        <http://purl.org/ipo/core#indicatedBy>
+                <https://purl.org/oquo#observation-ff94c64d-1e6c-4e25-8ad1-b8329e6f12d1> .
