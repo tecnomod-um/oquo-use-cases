@@ -109,7 +109,7 @@ def execute_convert_foops_to_oquo(foops_data: dict):
     response.raise_for_status()
     return response.text
 
-@app.post("/foopsToOquo/")
+@app.post("/foopsToOquo")
 def convert_foops_to_oquo(foops_results: dict = Body(...)):
     turtle = execute_convert_foops_to_oquo(foops_results)
     return Response(content=turtle, media_type="text/turtle")
