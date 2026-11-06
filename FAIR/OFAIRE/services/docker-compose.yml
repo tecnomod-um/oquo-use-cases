@@ -1,3 +1,12 @@
+# OntoPortal appliance with O'FAIRe (ontoportal/README.md): the docker-compose.yml
+# of the ontoportal_docker submodule plus the changes in compose.override.yml
+include:
+  - path:
+      - ontoportal/ontoportal_docker/docker-compose.yml
+      - ontoportal/compose.override.yml
+    project_directory: ontoportal/ontoportal_docker
+    env_file: ontoportal/ontoportal.env
+
 services:
   oquo-instance-creator:
     build: ./oquo-instance-creator-endpoint

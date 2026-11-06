@@ -1,0 +1,19 @@
+{
+  "name": "OQUO core",
+  "hasOntologyLanguage": "OWL",
+  "submission": {
+    "pullLocation": "https://purl.org/oquo-core/v2.1.0",
+    "version": "2.1.0",
+    "status": "production",
+    "released": "2026-11-06T00:00:00.000+00:00",
+    "description": "OQUO (Ontology QUality Ontology) is a framework-agnostic ontology for describing quality models for ontologies and the results of ontology quality evaluations in a common, machine-readable format. The OQUO core provides the general vocabulary needed to define quality models, consisting of quality characteristics and subcharacteristics, the metrics that measure them and the scales on which they are measured, together with the conversions between raw metric scales and the scales of quality models, which can be defined as cardinal to ordinal, cardinal to nominal, ordinal to ordinal and cardinal to cardinal mappings. It also represents the results of quality evaluations, including the observations made on the evaluated entities, the measured values, the evaluation context and configuration, and the issues detected, classified by severity and by non conformity. Specific quality models (e.g. OQuaRE or FAIR) are defined in separate modules that extend the core, and the metrics, raw scales and issue types of concrete evaluation frameworks are described in further modules that extend those quality models, so that the results of independently developed tools can be represented, compared and aggregated within a single model. OQUO reuses existing ontologies such as the Quality Model Ontology (QMO), the Evaluation Ontology (EVAL), the Extensible Observation Ontology (OBOE), and the Information Problem Ontology (IPO).",
+    "homepage": "https://github.com/tecnomod-um/oquo",
+    "URI": "https://purl.org/oquo-core",
+    "hasOntologySyntax": "http://www.w3.org/ns/formats/RDF_XML",
+    "prefLabelProperty": "http://www.w3.org/2000/01/rdf-schema#label",
+    "definitionProperty": "http://purl.obolibrary.org/obo/IAO_0000115",
+    "authorProperty": "http://purl.org/dc/elements/1.1/creator",
+    "createdProperty": "http://purl.org/dc/terms/created",
+    "obsoleteProperty": "http://www.w3.org/2002/07/owl#deprecated"
+  }
+}

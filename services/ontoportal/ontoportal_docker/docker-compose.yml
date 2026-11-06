@@ -1,0 +1,267 @@
+# OntoPortal appliance topology: API + UI + their backing services.
+#
+# This file is owned by this repo. The ontologies_api and bioportal_web_ui
+# repos keep their own docker-compose.yml for their development and test
+# workflows; this file is the deployment/appliance view and is intentionally
+# independent from them.
+#
+# The OntoPortal images (api, cron, ui) are selected with IMAGE_REPOSITORY and
+# API_TAG / NCBO_CRON_TAG / UI_TAG in .env (default: master).
+
+name: ontoportal_docker
+
+x-api-env: &api-env
+  # Backing-service endpoints, matching the service names declared below.
+  REDIS_HOST: redis
+  REDIS_PORT: 6379
+  REDIS_GOO_CACHE_HOST: redis
+  REDIS_HTTP_CACHE_HOST: redis
+  REDIS_PERSISTENT_HOST: redis
+  SOLR_TERM_SEARCH_URL: http://solr:8983/solr
+  SOLR_PROP_SEARCH_URL: http://solr:8983/solr
+  GOO_BACKEND_NAME: virtuoso
+  GOO_HOST: virtuoso
+  GOO_PORT: 8890
+  GOO_PATH_DATA: /sparql/
+  GOO_PATH_QUERY: /sparql/
+  GOO_PATH_UPDATE: /sparql/
+  MGREP_HOST: mgrep
+  MGREP_PORT: 55555
+  REPOSITORY_FOLDER: /srv/ontoportal/data/repository
+  REPORT_PATH: /srv/ontoportal/data/reports/ontologies_report.json
+  # Same file, two names: ontologies_api reads MGREP_DICTIONARY_FILE while
+  # ncbo_cron reads MGREP_DICT_PATH (its generator writes the dictionary
+  # there, on the volume shared with the mgrep service)
+  MGREP_DICTIONARY_FILE: /srv/ontoportal/data/mgrep/dictionary.txt
+  MGREP_DICT_PATH: /srv/ontoportal/data/mgrep/dictionary.txt
+
+x-api-depends: &api-depends
+  redis:
+    condition: service_healthy
+  solr:
+    condition: service_healthy
+  virtuoso:
+    condition: service_started
+  mgrep:
+    condition: service_started
+
+services:
+  # Single public entry point (config/nginx/templates/). Everything else stays
+  # on the internal compose network; nginx is the only service publishing
+  # host ports:
+  #   ${NGINX_HTTP_PORT:-80}  -> ui:3000
+  #   ${NGINX_API_PORT:-9393} -> api:9393 (the API keeps its historical port
+  #                              so existing API_URL values keep working)
+  # No depends_on on purpose: a partial stack ('./ontoportal start api')
+  # still gets its proxy, requests for the missing half answer 502.
+  nginx:
+    image: nginx:1.27-alpine
+    container_name: nginx-service
+    restart: unless-stopped
+    ports:
+      - "${NGINX_HTTP_PORT:-80}:80"
+      - "${NGINX_API_PORT:-9393}:9393"
+    environment:
+      # Substituted into config/nginx/templates/*.template by the image
+      # entrypoint at startup
+      NGINX_MAX_BODY_SIZE: ${NGINX_MAX_BODY_SIZE:-512m}
+      NGINX_PROXY_READ_TIMEOUT: ${NGINX_PROXY_READ_TIMEOUT:-300s}
+    volumes:
+      - ./config/nginx/templates:/etc/nginx/templates:ro
+    healthcheck:
+      # /healthz is answered by nginx itself, not proxied (the image has
+      # busybox wget, no curl)
+      test: ["CMD-SHELL", "wget -q --spider http://127.0.0.1/healthz || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+  api:
+    image: ${IMAGE_REPOSITORY:-agroportal}/ontologies_api:${API_TAG:-master}
+    container_name: api-service
+    restart: unless-stopped
+    env_file: .env
+    environment: *api-env
+    # unicorn relies on a buffering reverse proxy for slow-client protection;
+    # it is reachable only through nginx (no published ports)
+    command: ["bash", "-c", "rm -f tmp/pids/unicorn.pid && (bundle check || bundle install) && bundle exec unicorn -c config/unicorn.rb -E production -l 9393"]
+    volumes:
+      - repository:/srv/ontoportal/data/repository
+    depends_on:
+      <<: *api-depends
+      ncbo_cron:
+        condition: service_started
+
+  ncbo_cron:
+    image: ${IMAGE_REPOSITORY:-agroportal}/ncbo_cron:${NCBO_CRON_TAG:-master}
+    restart: unless-stopped
+    env_file: .env
+    environment: *api-env
+    # Links the lemmatizer of the ncbo_annotator gem into the working directory
+    # (config/ncbo_cron/entrypoint.sh). It has to be the entrypoint and not the
+    # command: every annotator step -- ncbo_ontology_process included -- runs in
+    # its own 'docker compose run' container, which overrides the command.
+    entrypoint: ["/usr/local/bin/ncbo_cron-entrypoint.sh"]
+    command: ["bundle", "exec", "bin/ncbo_cron"]
+    volumes:
+      - ./config/ncbo_cron/entrypoint.sh:/usr/local/bin/ncbo_cron-entrypoint.sh:ro
+      # provisioning loads the starter ontology from the copy shipped here
+      - ./config/ncbo_cron/ncbo_ontology_load:/srv/ontoportal/ncbo_cron/bin/ncbo_ontology_load:ro
+      - ./data/ontologies:/srv/ontoportal/data/ontologies:ro
+      - repository:/srv/ontoportal/data/repository
+      - reports:/srv/ontoportal/data/reports
+      - mgrep_dictionary:/srv/ontoportal/data/mgrep
+      - cron_logs:/srv/ontoportal/ncbo_cron/logs
+    depends_on: *api-depends
+
+  # O'FAIRe, the FAIRness assessment service (config/fairness/). Read by the UI
+  # through FAIRNESS_URL and published by nginx on :9393/ofaire.
+  #
+  # Built here from github.com/agroportal/fairness because upstream publishes no
+  # image: 'docker compose build fairness' rebuilds it, and FAIRNESS_REF pins
+  # the source. The image: line is what a published image would keep, so the
+  # build: block is the only thing to drop the day one exists.
+  fairness:
+    image: ${IMAGE_REPOSITORY:-agroportal}/fairness:${FAIRNESS_TAG:-local}
+    build:
+      context: ./config/fairness
+      args:
+        FAIRNESS_REF: ${FAIRNESS_REF:-master}
+    container_name: fairness-service
+    restart: unless-stopped
+    environment:
+      # The entrypoint writes these into the portal configuration the webapp
+      # reads from its classpath; SERVER_DEFAULT_PORTAL is the one variable the
+      # Java code reads by itself (it names the configuration to fall back on
+      # when a request carries no portal parameter, which is what nginx
+      # arranges for).
+      SERVER_DEFAULT_PORTAL: ${FAIRNESS_PORTAL:-ontoportal}
+      PORTAL_URL: ${FAIRNESS_API_URL:-http://api:9393}
+      PORTAL_APIKEY: ${API_KEY}
+      PORTAL_ADMIN_APIKEY: ${FAIRNESS_ADMIN_APIKEY:-}
+      CACHE_ENABLED: ${FAIRNESS_CACHE_ENABLED:-true}
+      CACHE_FILE_PATH: /srv/ontoportal/data/fairness/save.json
+      CATALINA_OPTS: ${FAIRNESS_JAVA_OPTS:-}
+    volumes:
+      # the cache the service answers from, written by 'fairness-cache'
+      - fairness_cache:/srv/ontoportal/data/fairness
+    healthcheck:
+      # the image has no curl, and the servlet has no cheap endpoint (any
+      # request evaluates ontologies), so check that Tomcat accepts connections
+      test: ["CMD-SHELL", "bash -c '</dev/tcp/localhost/8080'"]
+      start_period: 20s
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    depends_on:
+      api:
+        condition: service_started
+
+  redis:
+    image: redis
+    restart: unless-stopped
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    healthcheck:
+      test: redis-cli ping
+      interval: 10s
+      timeout: 3s
+      retries: 10
+
+  solr:
+    image: solr:8
+    restart: unless-stopped
+    command: bin/solr start -cloud -f
+    volumes:
+      - solr_data:/var/solr/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8983/solr/admin/info/system?wt=json || exit 1"]
+      interval: 10s
+      timeout: 10s
+      retries: 30
+
+  mgrep:
+    image: ontoportal/mgrep-ncbo:0.1
+    restart: unless-stopped
+    # The image's run.sh serves a sample dictionary baked into the image;
+    # serve the one ncbo_cron generates on the shared volume instead (seeded
+    # from the sample on first boot, before any ontology is processed).
+    # mgrep only reads the file at startup: restart this service after
+    # regenerating the dictionary (provisioning does it).
+    command:
+      - /bin/sh
+      - -c
+      - |
+        [ -f /srv/ontoportal/data/mgrep/dictionary.txt ] || cp /srv/mgrep/dictionary.txt /srv/ontoportal/data/mgrep/dictionary.txt
+        mgrep --port 55555 -f /srv/ontoportal/data/mgrep/dictionary.txt -w /srv/mgrep/word_divider.txt -c /srv/mgrep/CaseFolding.txt
+        while true; do sleep 1000; done
+    volumes:
+      - mgrep_dictionary:/srv/ontoportal/data/mgrep
+
+  virtuoso:
+    image: tenforce/virtuoso:virtuoso7.2.5
+    platform: linux/amd64
+    restart: unless-stopped
+    environment:
+      SPARQL_UPDATE: "true"
+    volumes:
+      - virtuoso_data:/data
+    healthcheck:
+      # the image has no curl/wget, so plain TCP check on the SPARQL port
+      test: ["CMD-SHELL", "bash -c '</dev/tcp/localhost/8890'"]
+      start_period: 10s
+      interval: 60s
+      timeout: 5s
+      retries: 3
+
+  ui:
+    image: ${IMAGE_REPOSITORY:-agroportal}/ontoportal_web_ui:${UI_TAG:-master}
+    container_name: ui-service
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      RAILS_ENV: production
+      DB_HOST: db
+      MEMCACHE_SERVERS: cache:11211
+      BIOPORTAL_WEB_UI_DATABASE_PASSWORD: root
+    # The image ships its gems and precompiled assets. config/puma.rb binds a
+    # unix socket in production and redirects its output to log files, so the
+    # TCP bind is forced on the command line and the directories that the puma
+    # config expects (socket, pidfile, logs) are created first. Puma is
+    # reachable only through nginx (no published ports).
+    command: ["bash", "-c", "(bundle check || bundle install) && bin/rails db:prepare && mkdir -p log tmp/pids /opt/ontoportal/bioportal_web_ui/shared/tmp/sockets && exec bundle exec puma -C config/puma.rb -b tcp://0.0.0.0:3000"]
+    depends_on:
+      db:
+        condition: service_healthy
+      cache:
+        condition: service_started
+
+  db:
+    image: mysql:8.0
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      # check over TCP: during first-boot initialization mysql runs a temporary
+      # socket-only server, so a socket ping would report healthy too early
+      test: ["CMD-SHELL", "mysql -h127.0.0.1 -uroot -proot -e 'SELECT 1' >/dev/null 2>&1"]
+      interval: 5s
+      timeout: 5s
+      retries: 24
+      start_period: 30s
+
+  cache:
+    image: memcached:latest
+    restart: unless-stopped
+    command: ["-m", "1024"]
+
+volumes:
+  repository:
+  reports:
+  mgrep_dictionary:
+  fairness_cache:
+  cron_logs:
+  solr_data:
+  virtuoso_data:
+  mysql_data:
