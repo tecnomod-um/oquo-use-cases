@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-    <uri id="User Entered Import Resolution" name="https://purl.org/oquo-fair-qm" uri="file:/home/fabad/ontologies/oquo/ontology/quality_models/oquo-fair-qm.owl"/>
-    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public">
-        <uri id="Automatically generated entry, Timestamp=1793355909560" name="https://purl.org/oquo-foops" uri="oquo-foops.owl"/>
-    </group>
-</catalog>

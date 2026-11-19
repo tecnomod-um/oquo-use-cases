@@ -86,6 +86,8 @@ def generate_oquo_observation(feature_of_interest_iri, check):
     oquo_observation['rankingFunctionIRI'] = 'http://purl.org/net/QualityModel#HigherBest'
     oquo_observation['value'] = check_score
     oquo_observation['timestamp'] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    oquo_observation['agentIRI'] = 'https://purl.org/oquo-foops#foops-software-agent'
+    oquo_observation['agentTypeIRI'] = 'http://www.w3.org/ns/prov#SoftwareAgent'
 
     if 'error' == check_status:
         issue = {

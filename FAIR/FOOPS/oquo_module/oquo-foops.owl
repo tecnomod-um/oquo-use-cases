@@ -13,6 +13,9 @@
      xmlns:skos="http://www.w3.org/2004/02/skos/core#"
      xmlns:vann="http://purl.org/vocab/vann/"
      xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:schema="http://schema.org/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:prov="http://www.w3.org/ns/prov#"
      xmlns:oquo="https://purl.org/oquo#"
      xmlns:oquo-fair-qm="https://purl.org/oquo-fair-qm#"
      xmlns:QualityModel="http://purl.org/net/QualityModel#">
@@ -1536,7 +1539,23 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    <!-- https://purl.org/oquo-foops#foops-software-agent -->
 
+    <owl:NamedIndividual rdf:about="https://purl.org/oquo-foops#foops-software-agent">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
+        <obo:IAO_0000115 xml:lang="en">The software implementation of FOOPS! (Ontology Pitfall Scanner for FAIR), a service that assesses whether an ontology or vocabulary (OWL or SKOS) complies with the FAIR principles. Given the IRI or the file of an ontology, it runs a set of checks, each one associated with a FAIR principle (Findable, Accessible, Interoperable and Reusable), on the ontology and its metadata, and reports which checks pass and an overall score. It acts as the agent of the evaluations whose results are described with this module.</obo:IAO_0000115>
+        <dc:creator rdf:resource="https://orcid.org/0000-0003-0454-7145"/>
+        <dc:creator rdf:resource="https://orcid.org/0000-0002-9260-0753"/>
+        <dc:creator rdf:resource="https://orcid.org/0000-0003-3587-0367"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
+        <obo:IAO_0000119 xml:lang="en">Garijo, D., Corcho, O. and Poveda-Villalón, M. (2021). FOOPS!: An Ontology Pitfall Scanner for the FAIR Principles. In ISWC 2021: Posters, Demos, and Industry Tracks. CEUR Workshop Proceedings, vol. 2980.</obo:IAO_0000119>
+        <schema:codeRepository rdf:resource="https://github.com/oeg-upm/fair_ontologies"/>
+        <foaf:homepage rdf:resource="https://w3id.org/foops/"/>
+        <rdfs:seeAlso rdf:resource="https://doi.org/10.5281/zenodo.14767999"/>
+        <rdfs:comment xml:lang="en">Software that implements FOOPS! and runs its FAIR checks on ontologies.</rdfs:comment>
+        <rdfs:label>foops software agent</rdfs:label>
+    </owl:NamedIndividual>
+    
 
 
     <!-- https://purl.org/oquo-foops#ClosedUnitInterval -->
