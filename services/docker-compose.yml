@@ -12,13 +12,13 @@ services:
     build: ./oquo-instance-creator-endpoint
     ports:
       - "${OQUO_INSTANCE_CREATOR_PORT}:8000"
-
-  foops-to-oquo-converter:
-    build: ./foops-to-oquo-converter
-    ports:
-      - "${FOOPS_TO_OQUO_CONVERTER_PORT}:8001"
+      
+  to-oquo-converter:
+    build: ./to-oquo-converter
     environment:
-      OQUO_INSTANCE_CREATOR_URL: http://oquo-instance-creator:8000/toOquoObservation
+      OQUO_INSTANCE_CREATOR_URL: http://oquo-instance-creator:8000/
+    ports:
+      - "${TO_OQUO_CONVERTER_PORT}:8001"
     depends_on:
       - oquo-instance-creator
     

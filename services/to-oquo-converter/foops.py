@@ -1,13 +1,12 @@
-import os
-import uvicorn
-from fastapi import FastAPI, Body, Response
+"""Conversion of the results of FOOPS! (https://w3id.org/foops/) to OQUO, with the module oquo-foops."""
 from datetime import datetime, timezone
-import requests
 
-app = FastAPI()
+from fastapi import APIRouter, Body, Query, Response
 
-OQUO_INSTANCE_CREATOR_ENDPOINT = os.getenv("OQUO_INSTANCE_CREATOR_URL")
+from oquo_client import create_oquo_rdf
 
+router = APIRouter()
+OQUO_FOOPS_IRI = 'https://purl.org/oquo-foops'
 FOOPS_TEST_TO_OQUO_METRIC = {
     "https://w3id.org/foops/test/CN1":        "https://purl.org/oquo-foops#ContentNegotiationMetric",
     "https://w3id.org/foops/test/DOC1":       "https://purl.org/oquo-foops#HTMLDocumentationMetric",
@@ -100,21 +99,25 @@ def generate_oquo_observation(feature_of_interest_iri, check):
     return oquo_observation
 
 
-def execute_convert_foops_to_oquo(foops_data: dict):
+def execute_convert_foops_to_oquo(foops_data: dict, model_iri: str = None):
     ontology_iri = foops_data['ontology_URI']
     oquo_observations = []
     for check in foops_data['checks']:
         oquo_observation = generate_oquo_observation(ontology_iri, check)
         oquo_observations.append(oquo_observation)
+    return create_oquo_rdf(oquo_observations, model_iri)
 
-    response = requests.post(OQUO_INSTANCE_CREATOR_ENDPOINT, json={"observationsInfoDTO": oquo_observations})
-    response.raise_for_status()
-    return response.text
 
-@app.post("/foopsToOquo")
+@router.post("/foopsToOquo")
 def convert_foops_to_oquo(foops_results: dict = Body(...)):
     turtle = execute_convert_foops_to_oquo(foops_results)
     return Response(content=turtle, media_type="text/turtle")
 
-if __name__ == '__main__':
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+@router.post("/foopsToOquoModel")
+def convert_foops_to_oquo_model(foops_results: dict = Body(...),
+                                modelIRI: str = Query(OQUO_FOOPS_IRI,
+                                                      description="IRI of the OQUO module that describes the "
+                                                                  "FOOPS! metrics. By default, oquo-foops.")):
+    turtle = execute_convert_foops_to_oquo(foops_results, modelIRI)
+    return Response(content=turtle, media_type="text/turtle")

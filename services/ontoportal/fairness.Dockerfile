@@ -34,7 +34,7 @@ LABEL org.opencontainers.image.source="https://github.com/agroportal/fairness" \
 # configuration into WEB-INF/classes before Tomcat starts
 RUN rm -rf /usr/local/tomcat/webapps/*
 COPY --from=build /src/target/fairness-assessment/ /usr/local/tomcat/webapps/ROOT/
-
+RUN sed -i 's#</web-app>#    <response-character-encoding>UTF-8</response-character-encoding>\n</web-app>#' /usr/local/tomcat/conf/web.xml
 COPY entrypoint.sh fairness-cache /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh /usr/local/bin/fairness-cache
 
