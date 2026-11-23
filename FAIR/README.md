@@ -33,7 +33,7 @@ Each framework folder contains:
 | `oquo_module/` | OQUO module of the framework: metrics, raw scales, scale conversions, issue types (FOOPS!) and software agent. |
 | `oquo_compliant_results/` | The results in `source_results/` expressed as OQUO-compliant RDF. |
 
-`OFAIRE/` also contains `ontoportal_data/`, with the descriptions of the ontologies loaded in OntoPortal to be assessed by O'FAIRe, and `evaluate.sh`, which runs the assessment and records the versions of the tools used.
+`OFAIRE/` also contains `ontoportal_data/`, with the descriptions of the ontologies loaded in OntoPortal to be assessed by O'FAIRe.
 
 ## Running the evaluations
 

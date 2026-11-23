@@ -17,7 +17,7 @@ O'FAIRe does not report issues, so the module defines no issue types.
 | `ontoportal_data/` | Descriptions of the ontologies loaded in OntoPortal to be assessed, one JSON file per ontology. `OQUO-CORE.json` describes the OQUO core, downloaded from its version IRI (`https://purl.org/oquo-core/v2.2.2`). |
 | `evaluate.sh` | Script that assesses the OQUO core and converts the results into OQUO-compliant RDF. |
 | `source_results/` | Results of O'FAIRe for the OQUO core, as returned by the service (`ofaire_results.json`), and the versions of the tools used to obtain them (`environment.txt`). |
-| `oquo_module/` | The `oquo-ofaire` module, with an OWL catalog (`catalog-v001.xml`) to resolve its imports in Protégé. |
+| `oquo_module/` | The `oquo-ofaire` module. |
 | `oquo_compliant_results/` | The results as OQUO-compliant RDF, with the `oquo-ofaire` module and the converted values (`oquo_model.ttl`). |
 
 ## Reproducing the results

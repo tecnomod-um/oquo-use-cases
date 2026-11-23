@@ -49,8 +49,8 @@ PY
   echo "O'FAIRe commit: $(grep -E '^FAIRNESS_COMMIT=' "$ONTOPORTAL/ontoportal.env" | cut -d= -f2)"
   echo "images:"
   (cd "$SERVICES" && docker compose config --images) | sort -u | while read -r image; do
-    digest="$(docker image inspect --format '{{index .RepoDigests 0}}' "$image" 2>/dev/null || echo "built locally")"
-    echo "  $image -> $digest"
+    digest="$(docker image inspect --format '{{range .RepoDigests}}{{.}} {{end}}' "$image" 2>/dev/null | awk '{print $1}')"
+    echo "  $image -> ${digest:-built locally}"
   done
 } >"$RESULTS/environment.txt"
 echo "[+] Versions saved in $RESULTS/environment.txt"

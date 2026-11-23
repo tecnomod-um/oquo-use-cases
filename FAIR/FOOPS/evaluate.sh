@@ -55,8 +55,8 @@ ontology_sha256="$(curl -fsSL -H "Accept: application/rdf+xml, text/turtle;q=0.9
   echo "ontology sha256: $ontology_sha256"
   echo "images:"
   (cd "$SERVICES" && docker compose config --images) | sort -u | while read -r image; do
-    digest="$(docker image inspect --format '{{index .RepoDigests 0}}' "$image" 2>/dev/null || echo "built locally")"
-    echo "  $image -> $digest"
+    digest="$(docker image inspect --format '{{range .RepoDigests}}{{.}} {{end}}' "$image" 2>/dev/null | awk '{print $1}')"
+    echo "  $image -> ${digest:-built locally}"
   done
 } >"$SOURCE_RESULTS/environment.txt"
 echo "[+] Versions saved in $SOURCE_RESULTS/environment.txt"

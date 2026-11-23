@@ -1,5 +1,3 @@
-# OntoPortal appliance with O'FAIRe (ontoportal/README.md): the docker-compose.yml
-# of the ontoportal_docker submodule plus the changes in compose.override.yml
 include:
   - path:
       - ontoportal/ontoportal_docker/docker-compose.yml

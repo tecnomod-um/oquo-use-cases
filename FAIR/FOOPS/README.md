@@ -15,7 +15,7 @@ FOOPS! runs a set of checks on an ontology and its metadata, each one associated
 |---|---|
 | `evaluate.sh` | Script that assesses the OQUO core and converts the results into OQUO-compliant RDF. |
 | `source_results/` | Results of FOOPS! for the OQUO core, as returned by the service (`foops_results.json`), and the versions used to obtain them (`environment.txt`). |
-| `oquo_module/` | The `oquo-foops` module, with an OWL catalog (`catalog-v001.xml`) to resolve its imports in Protégé. |
+| `oquo_module/` | The `oquo-foops` module. |
 | `oquo_compliant_results/` | The results as OQUO-compliant RDF (`oquo_model.ttl`). |
 
 ## Reproducing the results
