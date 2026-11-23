@@ -32,6 +32,7 @@ Each framework folder contains:
 | `source_results/` | Results of the evaluations as originally returned by the framework (JSON). |
 | `oquo_module/` | OQUO module of the framework: metrics, raw scales, scale conversions, issue types (FOOPS!) and software agent. |
 | `oquo_compliant_results/` | The results in `source_results/` expressed as OQUO-compliant RDF. |
+| `evaluate.sh` | Script that assesses the OQUO core with the framework and converts the results into OQUO-compliant RDF. |
 
 `OFAIRE/` also contains `ontoportal_data/`, with the descriptions of the ontologies loaded in OntoPortal to be assessed by O'FAIRe.
 
