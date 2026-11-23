@@ -1,13 +1,13 @@
-date: 2026-11-20T11:57:36Z
-ontology: https://purl.org/oquo-core/v2.1.0
-ontology sha256: 00c998e55a26c2ffc9c36d7f06abec6a60d6557db56b077d6e27dfb0115446c4
-ontoportal_docker commit: ebc6b4b6136f73c9e2f7b0ca3519db0463d538f4
+date: 2026-11-23T12:12:32Z
+ontology: https://purl.org/oquo-core/v2.2.2
+ontology sha256: 48d799dc3c2a85e2990a59fc6dcee3b6ba12892725802f3ab734869663febf17
+ontoportal_docker commit: 39299366fb4fa589abec409e6d17f4451d77f9d9
 O'FAIRe commit: 24def6b4b01fb7690e938adfc8477d6436c3cc1f
 images:
   agroportal/fairness:oquo-24def6b -> 
 built locally
   agroportal/ncbo_cron:master -> agroportal/ncbo_cron@sha256:64a4ec8f90dcac150d5044398b9611301794e0fc8c3bf6da355823ed72985f7c
-  agroportal/ontologies_api:master -> agroportal/ontologies_api@sha256:a8813d6c8cc6a6faeb496af91013c2f8de3c89a1e260fed83eebdccccd91905a
+  agroportal/ontologies_api:master -> agroportal/ontologies_api@sha256:e125112cdb14a5b279656b53b96c8af00704aec511eee8167149270de3711c3e
   nginx:1.27-alpine -> nginx@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
   ontoportal/mgrep-ncbo:0.1 -> ontoportal/mgrep-ncbo@sha256:c5499148deff2a1c548fb19247e3d60f7e1f17ebb60f1e4035c25cba56d1a5a2
   redis -> redis@sha256:1f88291b4c57bdf249f02eb085a8669889b2d2954e91d4de5118a5da6b78dd53

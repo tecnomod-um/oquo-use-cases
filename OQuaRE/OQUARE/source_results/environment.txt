@@ -1,0 +1,7 @@
+date: 2026-11-23T12:17:05Z
+ontology: https://purl.org/oquo-core/v2.2.2
+ontology sha256: 48d799dc3c2a85e2990a59fc6dcee3b6ba12892725802f3ab734869663febf17
+OQuaRE: oquare-versions-0.0.13.jar
+OQuaRE sha256: cffc18ab17c9d0e646c22a1d5a1e9c8f13b27a3426513d97491bcdb6a99927d1
+Java: openjdk version "21.0.11" 2026-04-21
+OQUO module: https://purl.org/oquo-oquare

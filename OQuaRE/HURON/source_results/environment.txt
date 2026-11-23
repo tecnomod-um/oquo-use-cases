@@ -1,0 +1,7 @@
+date: 2026-11-23T12:16:31Z
+ontology: https://purl.org/oquo-core/v2.2.2
+ontology sha256: 48d799dc3c2a85e2990a59fc6dcee3b6ba12892725802f3ab734869663febf17
+HURON: huron-0.0.15.jar
+HURON sha256: d77cf7ce694904dd6ae3d09db6106078f4088789536ef6b9cee51789443a161e
+Java: openjdk version "21.0.11" 2026-04-21
+OQUO module: https://purl.org/oquo-huron

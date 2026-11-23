@@ -7,13 +7,6 @@ A local [OntoPortal](https://ontoportal.org/) appliance with [O'FAIRe](https://g
 - Docker with Docker Compose 2.24 or later (`include` and `!override` are used)
 - At least 8 GB of RAM available for Docker. Some images (Virtuoso, mgrep) are only published for `amd64`, so on ARM machines (e.g. Apple silicon) they run under emulation and more slowly.
 
-## Setup
-
-After cloning this repository, fetch the submodule:
-
-```bash
-git submodule update --init services/ontoportal/ontoportal_docker
-```
 
 ## Usage
 
@@ -60,6 +53,7 @@ The submodule itself is not modified.
 
 ## Versions
 
-- **ontoportal_docker:** commit of the submodule.
+- **ontoportal_docker:** Files copied from https://github.com/ontoportal-lirmm/ontoportal_docker
+at commit da4f2a6c9ee3be691d279d34f20088f660775bc8 (2026-11-05), unmodified.
 - **O'FAIRe:** `FAIRNESS_COMMIT` in `ontoportal.env`.
 - **OntoPortal images:** `API_TAG` and `NCBO_CRON_TAG` in `ontoportal.env`. They default to `master`, which changes over time. The use cases record the digest of every image used in each run (e.g. `FAIR/OFAIRe/source_results/environment.txt`), which can be pinned as `API_TAG=master@sha256:<digest>`.

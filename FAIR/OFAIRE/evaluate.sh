@@ -5,7 +5,7 @@
 #   cd services && docker compose up -d --wait
 #
 # Outputs:
-#   source_results/oquo-core_results.json   O'FAIRe results, as returned by the service
+#   source_results/ofair_results.json       O'FAIRe results, as returned by the service
 #   source_results/environment.txt          versions used (ontology, appliance, O'FAIRe, images)
 set -euo pipefail
 
@@ -23,8 +23,8 @@ mkdir -p "$RESULTS"
 
 echo "[+] Assessing $ACRONYM with O'FAIRe"
 curl -fsS "http://localhost:$API_PORT/ofaire?ontologies=$ACRONYM&sync" \
-  | python3 -m json.tool >"$RESULTS/oquo-core_results.json"
-echo "[+] Results saved in $RESULTS/oquo-core_results.json"
+  | python3 -m json.tool >"$RESULTS/ofaire_results.json"
+echo "[+] Results saved in $RESULTS/ofaire_results.json"
 
 # Ontology assessed: its pullLocation (or local file) and the checksum of its content
 read -r ontology_source ontology_sha256 < <(python3 - "$DATA/$ACRONYM.json" <<'PY'
@@ -55,7 +55,6 @@ PY
 } >"$RESULTS/environment.txt"
 echo "[+] Versions saved in $RESULTS/environment.txt"
 
-# TODO: convert the results into OQUO-compliant RDF once the O'FAIRe to OQUO
-# converter is available in services/, e.g.
-#   curl -fsS -X POST http://localhost:<port>/ofaireToOquo -H "Content-Type: application/json" \
-#        -d @"$RESULTS/oquo-core_results.json" -o "$HERE/oquo_compliant_results/oquo-core_results.ttl"
+# convert the results into OQUO-compliant RDF once the O'FAIRe to OQUO
+   curl -fsS -X POST http://localhost:8001/ofaireToOquoModel -H "Content-Type: application/json" \
+        -d @"$RESULTS/ofaire_results.json" -o "$HERE/oquo_compliant_results/oquo_model.ttl"
