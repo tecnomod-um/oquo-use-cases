@@ -5,7 +5,7 @@
 #   cd services && docker compose up -d --wait
 #
 # Outputs:
-#   source_results/ofair_results.json       O'FAIRe results, as returned by the service
+#   source_results/ofaire_results.json       O'FAIRe results, as returned by the service
 #   source_results/environment.txt          versions used (ontology, appliance, O'FAIRe, images)
 set -euo pipefail
 
@@ -55,6 +55,6 @@ PY
 } >"$RESULTS/environment.txt"
 echo "[+] Versions saved in $RESULTS/environment.txt"
 
-# convert the results into OQUO-compliant RDF once the O'FAIRe to OQUO
-   curl -fsS -X POST http://localhost:8001/ofaireToOquoModel -H "Content-Type: application/json" \
-        -d @"$RESULTS/ofaire_results.json" -o "$HERE/oquo_compliant_results/oquo_model.ttl"
+# convert the results into OQUO-compliant RDF
+curl -fsS -X POST http://localhost:8001/ofaireToOquoModel -H "Content-Type: application/json" \
+    -d @"$RESULTS/ofaire_results.json" -o "$HERE/oquo_compliant_results/oquo_model.ttl"

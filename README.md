@@ -27,6 +27,7 @@ oquo-use-cases/
 │   └── oquo-instance-creator-endpoint/
 ├── FAIR/                           use cases based on the FAIR quality model
 │   ├── FOOPS/
+│   │   ├── evaluate.sh
 │   │   ├── source_results/
 │   │   ├── oquo_module/
 │   │   └── oquo_compliant_results/
@@ -36,7 +37,17 @@ oquo-use-cases/
 │       ├── source_results/
 │       ├── oquo_module/
 │       └── oquo_compliant_results/
-├── OQuaRE/                         use cases based on the OQuaRE quality model (in preparation)
+├── OQuaRE/                         use cases based on the OQuaRE quality model
+│   ├── HURON/
+│   │   ├── huron-0.0.15.jar        command-line tool of HURON
+│   │   ├── evaluate.sh
+│   │   ├── source_results/
+│   │   └── oquo_compliant_results/
+│   └── OQUARE/
+│       ├── oquare-versions-0.0.13.jar   command-line tool of OQuaRE
+│       ├── evaluate.sh
+│       ├── source_results/
+│       └── oquo_compliant_results/
 ├── LICENSE
 └── README.md
 ```
@@ -45,13 +56,15 @@ oquo-use-cases/
 
 The repository is organised by quality model. Each quality model has its own folder (`FAIR`, `OQuaRE`), which contains one folder per evaluation framework used to measure it. Every framework folder follows the same structure:
 
-| Folder | Content |
+| File or folder | Content |
 |---|---|
-| `source_results/` | Results of the evaluations as originally returned by the framework (e.g. JSON), and, when available, the versions of the tools used to obtain them. |
-| `oquo_module/` | OQUO extension module of the framework: metrics and their association with the characteristics of the quality model, raw scales, conversions from the raw scales into the scale of the quality model, issue types and the software agent of the framework. |
-| `oquo_compliant_results/` | The results in `source_results/` expressed as OQUO-compliant RDF. |
+| `README.md` | Description of the use case and how to reproduce it. |
+| `evaluate.sh` | Script that evaluates the OQUO core with the framework and generates the OQUO-compliant results. |
+| `source_results/` | Results of the evaluations as originally returned by the framework (JSON or Turtle), and the versions of the tools used to obtain them (`environment.txt`). |
+| `oquo_module/` | OQUO extension module of the framework: metrics and their association with the characteristics of the quality model, raw scales, conversions from the raw scales into the scale of the quality model, issue types and the software agent of the framework. Only for the frameworks whose module is maintained here (FOOPS! and O'FAIRe). |
+| `oquo_compliant_results/` | The results in `source_results/` expressed as OQUO-compliant RDF, together with the OQUO module of the framework and the values converted to the scale of the quality model (`oquo_model.ttl`). |
 
-The quality models themselves (e.g. `oquo-fair-qm`, `oquo-oquare-qm`) are maintained in the [oquo](https://github.com/tecnomod-um/oquo) repository together with the OQUO core, and are imported by the framework modules through their persistent URLs (PURLs). Frameworks that already provide their own OQUO module, such as [HURON](https://github.com/tecnomod-um/huron), only include their results here. See [How to use OQUO](https://github.com/tecnomod-um/oquo#how-to-use-oquo) for what each kind of module contains.
+The quality models themselves (e.g. `oquo-fair-qm`, `oquo-oquare-qm`) are maintained in the [oquo](https://github.com/tecnomod-um/oquo) repository together with the OQUO core, and are imported by the framework modules through their persistent URLs (PURLs). Frameworks that already provide their own OQUO module, such as [HURON](https://github.com/tecnomod-um/huron) and [OQuaRE](https://github.com/tecnomod-um/oquare), maintain it in their repositories, so their folders include only the script, the command-line tool and the results. See [How to use OQUO](https://github.com/tecnomod-um/oquo#how-to-use-oquo) for what each kind of module contains.
 
 #### Current use cases
 
@@ -59,21 +72,25 @@ The quality models themselves (e.g. `oquo-fair-qm`, `oquo-oquare-qm`) are mainta
 |---|---|---|---|
 | FAIR ([`oquo-fair-qm`](https://purl.org/oquo-fair-qm)) | [FOOPS!](https://w3id.org/foops/) 0.4.0 | [`oquo-foops`](FAIR/FOOPS/oquo_module/oquo-foops.owl) (https://purl.org/oquo-foops) | OQUO core |
 | FAIR ([`oquo-fair-qm`](https://purl.org/oquo-fair-qm)) | [O'FAIRe](https://github.com/agroportal/fairness) (commit `24def6b`) | [`oquo-ofaire`](FAIR/OFAIRE/oquo_module/oquo-ofaire.owl) (https://purl.org/oquo-ofaire) | OQUO core |
+| OQuaRE ([`oquo-oquare-qm`](https://purl.org/oquo-oquare-qm)) | [HURON](https://github.com/tecnomod-um/huron) 0.0.15 | [`oquo-huron`](https://purl.org/oquo-huron) (https://purl.org/oquo-huron) | OQUO core |
+| OQuaRE ([`oquo-oquare-qm`](https://purl.org/oquo-oquare-qm)) | [OQuaRE](https://github.com/tecnomod-um/oquare) metrics 0.0.13 | [`oquo-oquare`](https://purl.org/oquo-oquare) (https://purl.org/oquo-oquare) | OQUO core |
 
-Each `oquo_module` folder also contains an OWL catalog file (`catalog-v001.xml`), used by tools based on the OWL API, such as Protégé, to resolve the imports of the module.
+The two FAIR frameworks assess the FAIRness of ontologies in different ways: FOOPS! runs tests on the ontology and its metadata, and reports the proportion of tests passed by each check; O'FAIRe answers questions about the metadata of an ontology stored in an OntoPortal repository, and gives credits to each answer. Both modules convert their raw scales into the percentage scale of the FAIR quality model (`oquo-fair-qm:PercentageScale`), so that their results can be compared characteristic by characteristic.
 
-The two frameworks assess the FAIRness of ontologies in different ways: FOOPS! runs tests on the ontology and its metadata, and reports the proportion of tests passed by each check; O'FAIRe answers questions about the metadata of an ontology stored in an OntoPortal repository, and gives credits to each answer. Both modules convert their raw scales into the percentage scale of the FAIR quality model (`oquo-fair-qm:PercentageScale`), so that their results can be compared characteristic by characteristic.
+The two OQuaRE frameworks measure different aspects of an ontology: HURON assesses its human readability (names, descriptions, synonyms, lexical regularities and systematic naming of its labels), and OQuaRE measures its structure with metrics adapted from software engineering (depth of the subsumption hierarchy, lack of cohesion in methods, tangledness…). Both modules convert their raw scales into the five categories of the OQuaRE quality model (`oquo-oquare-qm:OquareFiveCategoriesScale`), so that their results can be compared and aggregated characteristic by characteristic.
+
+See the README of each quality model ([FAIR](FAIR/README.md), [OQuaRE](OQuaRE/README.md)) and of each framework folder for the details of each use case.
 
 ### Services
 
-The `services` folder contains the services needed to evaluate an ontology and obtain its results as OQUO-compliant RDF. All of them are packaged as Docker images and can be started together with Docker Compose.
+The `services` folder contains the services needed to evaluate an ontology and obtain its results as OQUO-compliant RDF. All of them are packaged as Docker images and can be started together with Docker Compose. HURON and OQuaRE are not services: they are run with their command-line tools, included in their folders, and only need the `oquo-instance-creator` service.
 
 | Service | Default port | Endpoints | Description |
 |---|---|---|---|
 | `foops` | 8002 | `POST /assessOntology` | [FOOPS!](https://github.com/oeg-upm/fair_ontologies) server (version 0.4.0), which assesses the FAIRness of an ontology and returns the results as JSON. |
 | OntoPortal (`api`, `fairness`…) | 9393 | `GET /ofaire?ontologies=<ACRONYM>&sync` | [OntoPortal](https://ontoportal.org/) appliance with [O'FAIRe](https://github.com/agroportal/fairness), which assesses the FAIRness of the ontologies loaded in it and returns the results as JSON. See [`services/ontoportal`](services/ontoportal/README.md). |
 | `to-oquo-converter` | 8001 | `POST /foopsToOquo`, `POST /foopsToOquoModel`, `POST /ofaireToOquo`, `POST /ofaireToOquoModel` | REST service that receives the JSON returned by a framework and returns the results as OQUO-compliant RDF (Turtle), according to the OQUO module of the framework. It relies on the `oquo-instance-creator` service to generate the RDF. |
-| `oquo-instance-creator` | 8000 | `POST /toOquoObservation`, `POST /toOquoModel` | [REST service](https://github.com/tecnomod-um/oquo-instance-creator-endpoint) that turns descriptions of measured values into OQUO-compliant RDF. |
+| `oquo-instance-creator` | 8000 | `POST /toOquoObservation`, `POST /toOquoModel`, `POST /applyModel` | [REST service](https://github.com/tecnomod-um/oquo-instance-creator-endpoint) (version 0.0.5) that turns descriptions of measured values into OQUO-compliant RDF, and adds an OQUO module and the values converted by its scale conversions to OQUO-compliant RDF (`/applyModel`). |
 
 For each framework, the converter offers two methods:
 
@@ -94,6 +111,11 @@ The evaluation pipelines are:
  ontology ──▶ OntoPortal (loaded at start) ──JSON──▶ to-oquo-converter ──▶ oquo-instance-creator
               /ofaire                               (/ofaireToOquo…)             │
                                                                                  └──▶ OQUO-compliant RDF (Turtle)
+
+ HURON, OQuaRE
+ ontology file ──▶ command-line tool ──OQUO RDF (raw values)──▶ oquo-instance-creator
+                                                                (/applyModel)   │
+                                                                                └──▶ OQUO-compliant RDF (Turtle)
 ```
 
 #### Running the services
@@ -108,7 +130,13 @@ cd services
 docker compose up -d --build --wait
 ```
 
-The first start builds the images, and loads and processes in OntoPortal the ontologies described in `FAIR/OFAIRE/ontoportal_data/`, which can take several minutes. `--wait` returns once all the services are ready. See [`services/ontoportal`](services/ontoportal/README.md) for how to add ontologies to OntoPortal and other options of the appliance.
+The first start builds the images, and loads and processes in OntoPortal the ontologies described in `FAIR/OFAIRE/ontoportal_data/`, which can take several minutes. `--wait` returns once all the services are ready.
+
+To start only some of the services, give their names. For example, HURON and OQuaRE only need the instance creator, which can be started without OntoPortal:
+
+```bash
+docker compose up -d --build --wait oquo-instance-creator
+``` See [`services/ontoportal`](services/ontoportal/README.md) for how to add ontologies to OntoPortal and other options of the appliance.
 
 The ports on which the services are exposed are defined in the `services/.env` file:
 
@@ -190,7 +218,23 @@ O'FAIRe assesses the ontologies loaded in OntoPortal, identified by their acrony
 
    or, to also get the OQUO module and the values on the scale of the FAIR quality model, use `/ofaireToOquoModel`. The IRI of the assessed ontology is taken from the results of O'FAIRe; if it is missing, give it in the `ontologyIRI` parameter.
 
-`FAIR/OFAIRE/evaluate.sh` assesses the OQUO core with O'FAIRe and saves the results in `source_results/`, together with the versions of the ontology, OntoPortal, O'FAIRe and the Docker images used.
+**HURON and OQuaRE**
+
+Their command-line tools generate OQUO-compliant RDF with the results of their metrics on their raw scales. To add the OQUO module of the framework and the values converted to the scale of the OQuaRE quality model, send the results to the instance creator, with the IRI of the module:
+
+```bash
+curl -X POST "http://localhost:8000/applyModel" \
+     --url-query "ontologyIRI=https://purl.org/oquo-huron" \
+     -H "Content-Type: text/turtle" \
+     --data-binary @huron_results.ttl \
+     -o oquo_model.ttl
+```
+
+See [`OQuaRE/HURON`](OQuaRE/HURON/README.md) and [`OQuaRE/OQUARE`](OQuaRE/OQUARE/README.md) for how to run the command-line tools.
+
+**Evaluation scripts**
+
+Each framework folder contains an `evaluate.sh` script that runs the whole pipeline for the OQUO core: it evaluates the ontology, saves the results of the framework in `source_results/` together with the versions used (`environment.txt`), and saves the OQUO-compliant results in `oquo_compliant_results/oquo_model.ttl`.
 
 The instance creator can also be called directly to generate OQUO-compliant RDF from any other source of results; see its [API reference](https://github.com/tecnomod-um/oquo-instance-creator-endpoint#api-reference).
 
@@ -199,7 +243,8 @@ The instance creator can also be called directly to generate OQUO-compliant RDF 
 The use cases are designed to be reproducible:
 
 - The original outputs of the frameworks are kept, so that the OQUO-compliant RDF can be regenerated and checked against them.
-- The versions of the frameworks are fixed (FOOPS! 0.4.0, O'FAIRe at a given commit), all the services used in the pipeline are provided as Docker images, and the versions used in each run are recorded (e.g. `FAIR/OFAIRE/source_results/environment.txt`).
+- The versions of the frameworks are fixed (FOOPS! 0.4.0, O'FAIRe at a given commit, HURON 0.0.15 and OQuaRE 0.0.13), all the services used in the pipeline are provided as Docker images, and the versions used in each run are recorded in the `source_results/environment.txt` file of each framework folder.
+- The evaluated ontology is identified by its version IRI (e.g. `https://purl.org/oquo-core/v2.2.2`), and the checksum of the content evaluated is recorded with the versions.
 - OQUO modules are imported through their PURLs, so that they can be moved to other repositories without affecting the ontologies that import them.
 - The OQUO-compliant results can be validated with the [SHACL shapes of OQUO](https://github.com/tecnomod-um/oquo/tree/main/SHACL).
 
@@ -211,6 +256,7 @@ The use cases are designed to be reproducible:
 | [oquo-instance-creator-endpoint](https://github.com/tecnomod-um/oquo-instance-creator-endpoint) | REST service that turns evaluation results into OQUO-compliant RDF. |
 | [oquo-instance-creator](https://github.com/tecnomod-um/oquo-instance-creator) | Java library behind the REST service. |
 | [HURON](https://github.com/tecnomod-um/huron) | Framework for assessing the human readability of ontologies, with its own OQUO module. |
+| [OQuaRE](https://github.com/tecnomod-um/oquare) | Framework for evaluating the quality of ontologies based on SQuaRE, with its own OQUO module. |
 | [FOOPS!](https://github.com/oeg-upm/fair_ontologies) | Ontology pitfall scanner for the FAIR principles. |
 | [O'FAIRe](https://github.com/agroportal/fairness) | Ontology FAIRness evaluator of the OntoPortal repositories. |
 | [ontoportal_docker](https://github.com/ontoportal-lirmm/ontoportal_docker) | Docker appliance of OntoPortal, on which the OntoPortal service is based. |
