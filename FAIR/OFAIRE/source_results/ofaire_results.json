@@ -1593,13 +1593,13 @@
             "score": 253.0,
             "normalizedScore": 52,
             "maxCredits": 478.0,
-            "executionTime": 4598
+            "executionTime": 3883
         }
     },
     "status": {
         "request": "http://localhost:9393/?ontologies=OQUO-CORE&sync",
         "success": true,
-        "executionTime": 5361,
+        "executionTime": 4556,
         "endpoint": "http://api:9393",
         "useCache": false
     }

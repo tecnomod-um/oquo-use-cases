@@ -1,13 +1,13 @@
-date: 2026-11-23T21:59:11Z
+date: 2026-11-25T11:41:57Z
 ontology: https://purl.org/oquo-core/v2.2.2
 ontology sha256: 48d799dc3c2a85e2990a59fc6dcee3b6ba12892725802f3ab734869663febf17
 images:
   agroportal/fairness:oquo-24def6b -> built locally
-  agroportal/ncbo_cron:master -> agroportal/ncbo_cron@sha256:8d8971ff91ad72d5d7e59434b04b2774bc4cbc4b61e06dfe9b3c12585532b07d
-  agroportal/ontologies_api:master -> agroportal/ontologies_api@sha256:f37f39df7c45b51a5c67f36dc4d8c230781a2b131609f7800b46c96a3415df17
+  agroportal/ncbo_cron:master -> agroportal/ncbo_cron@sha256:c3ed2f4ca9e9ce9951934f547dc8f682729d6f398f4ba2f9d27fb0225ccfbc28
+  agroportal/ontologies_api:master -> agroportal/ontologies_api@sha256:4a29c11da7888683d1690e959ce6be79c94a5187cbe39029312f8a6a43a710b5
   nginx:1.27-alpine -> nginx@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
   ontoportal/mgrep-ncbo:0.1 -> ontoportal/mgrep-ncbo@sha256:c5499148deff2a1c548fb19247e3d60f7e1f17ebb60f1e4035c25cba56d1a5a2
-  redis -> redis@sha256:fdbe24d5cbe960326359fdde3fbcd98691ac74523dc9fe647c8a715b22630f7e
+  redis -> redis@sha256:ca1cb6df9313d0186b68f19b60fc2802e0c76e8542b2c05650b560e7bbb3cc8f
   services-foops -> built locally
   services-oquo-instance-creator -> built locally
   services-to-oquo-converter -> built locally

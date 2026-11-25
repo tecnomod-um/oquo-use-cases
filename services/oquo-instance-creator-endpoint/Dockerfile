@@ -1,5 +1,5 @@
 FROM eclipse-temurin:17-jre
 WORKDIR /app
-COPY oquo-instance-creator-endpoint-0.0.5.jar app.jar
+COPY oquo-instance-creator-endpoint-0.0.6.jar app.jar
 EXPOSE 8000
 CMD ["java", "-jar", "app.jar", "--server.port=8000"]
