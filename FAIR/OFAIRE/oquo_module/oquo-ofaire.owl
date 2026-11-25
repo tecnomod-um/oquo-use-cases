@@ -22,7 +22,7 @@
      xmlns:QualityModel="http://purl.org/net/QualityModel#"
      xmlns:oquo-fair-qm="https://purl.org/oquo-fair-qm#">
     <owl:Ontology rdf:about="https://purl.org/oquo-ofaire">
-        <owl:versionIRI rdf:resource="https://purl.org/oquo-ofaire/v1.0.1"/>
+        <owl:versionIRI rdf:resource="https://purl.org/oquo-ofaire/v1.0.0"/>
         <owl:imports rdf:resource="https://purl.org/oquo-fair-qm"/>
         <obo:IAO_0000116 xml:lang="en">The metrics, their credit levels and their explanations are generated from the questions.config.json file of O&apos;FAIRe (https://github.com/agroportal/fairness, MIT License). O&apos;FAIRe gives 0 credits to a question whenever it is not fulfilled or cannot be evaluated, so every scale includes a category with 0 credits even if O&apos;FAIRe does not declare it.</obo:IAO_0000116>
         <dc:contributor rdf:resource="https://orcid.org/0000-0003-0201-3115"/>
