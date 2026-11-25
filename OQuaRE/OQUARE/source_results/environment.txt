@@ -1,4 +1,4 @@
-date: 2026-11-25T12:55:31Z
+date: 2026-11-25T13:42:42Z
 ontology: https://purl.org/oquo-core/v2.2.2
 ontology sha256: 48d799dc3c2a85e2990a59fc6dcee3b6ba12892725802f3ab734869663febf17
 OQuaRE: oquare-versions-0.0.13.jar

@@ -1,7 +1,7 @@
-date: 2026-11-25T12:54:57Z
+date: 2026-11-25T13:42:16Z
 ontology: https://purl.org/oquo-core/v2.2.2
 ontology sha256: 48d799dc3c2a85e2990a59fc6dcee3b6ba12892725802f3ab734869663febf17
-ontoportal_docker commit: b1553c7f6e5287bca1e94afc490526133a95fbfa
+ontoportal_docker commit: d674888ba54b0508e17710e6f152d16632f9e578
 O'FAIRe commit: 24def6b4b01fb7690e938adfc8477d6436c3cc1f
 images:
   agroportal/fairness:oquo-24def6b -> built locally
