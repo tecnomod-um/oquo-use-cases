@@ -87,6 +87,7 @@ def generate_oquo_observation(feature_of_interest_iri, check):
     oquo_observation['timestamp'] = datetime.now(timezone.utc).isoformat(timespec="seconds")
     oquo_observation['agentIRI'] = 'https://purl.org/oquo-foops#foops-software-agent'
     oquo_observation['agentTypeIRI'] = 'http://www.w3.org/ns/prov#SoftwareAgent'
+    oquo_observation['agentVersion'] = '0.4.0'
 
     if 'error' == check_status:
         issue = {

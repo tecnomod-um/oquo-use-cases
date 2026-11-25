@@ -54,6 +54,7 @@ def generate_oquo_observation(ontology_iri, question_id, question, timestamp):
     oquo_observation['timestamp'] = timestamp
     oquo_observation['agentIRI'] = OFAIRE_AGENT_IRI
     oquo_observation['agentTypeIRI'] = 'http://www.w3.org/ns/prov#SoftwareAgent'
+    oquo_observation['agentVersion'] = '24def6b4b01fb7690e938adfc8477d6436c3cc1f'
 
     explanation = question.get('explanation')
     if explanation:
