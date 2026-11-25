@@ -97,7 +97,7 @@ For each framework, the converter offers two methods:
 - **`/<framework>ToOquo`** returns the results as OQUO observations, each one with its value on the raw scale of its metric.
 - **`/<framework>ToOquoModel`** also returns the OQUO module of the framework, together with the ontologies it imports (the FAIR quality model and the OQUO core), and the values converted to the percentage scale of the FAIR quality model by the scale conversions of the module. The result is self-contained: it can be queried with SPARQL without loading any other ontology. The module can be changed with the `modelIRI` parameter; by default, it is `oquo-foops` or `oquo-ofaire`.
 
-The results are attributed to the software agent of the framework, defined in its module (`oquo-foops:foops-software-agent`, `oquo-ofaire:ofaire-software-agent`), following the [provenance model of OQUO](https://github.com/tecnomod-um/oquo#provenance).
+The results are attributed to the software agent of the version of the framework used (FOOPS! 0.4.0 and O'FAIRe at commit `24def6b`), which is linked with `dcterms:isVersionOf` to the software agent of the framework defined in its module (`oquo-foops:foops-software-agent`, `oquo-ofaire:ofaire-software-agent`), following the [provenance model](https://github.com/tecnomod-um/oquo#provenance) of OQUO.
 
 The evaluation pipelines are:
 

@@ -7,7 +7,7 @@ FOOPS! runs a set of checks on an ontology and its metadata, each one associated
 - one metric per check of FOOPS!, associated with the characteristic of the FAIR quality model it measures;
 - the raw scale of each metric (the proportion of tests passed, from 0 to 1), and its conversion to the percentage scale of the FAIR quality model;
 - one issue type per check, for the checks that fail;
-- the software agent of FOOPS! (`oquo-foops:foops-software-agent`), to which the results are attributed.
+- the software agent of FOOPS! (`oquo-foops:foops-software-agent`). The results are attributed to the agent of the version used (0.4.0), which is a version of this agent (`dcterms:isVersionOf`).
 
 ## Contents
 

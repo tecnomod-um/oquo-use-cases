@@ -6,7 +6,7 @@ O'FAIRe (Ontology FAIRness Evaluator) assesses the ontologies stored in an [Onto
 
 - one metric per question of O'FAIRe, associated with the characteristic of the FAIR quality model it measures;
 - the raw scale of each metric, an ordinal scale whose categories are the numbers of credits that O'FAIRe can give to the question, and its conversion to the percentage scale of the FAIR quality model;
-- the software agent of O'FAIRe (`oquo-ofaire:ofaire-software-agent`), to which the results are attributed.
+- the software agent of O'FAIRe (`oquo-ofaire:ofaire-software-agent`). The results are attributed to the agent of the version used (commit `24def6b`), which is a version of this agent (`dcterms:isVersionOf`).
 
 O'FAIRe does not report issues, so the module defines no issue types.
 
