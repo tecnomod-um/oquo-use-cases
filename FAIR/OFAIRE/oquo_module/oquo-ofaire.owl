@@ -22,14 +22,14 @@
      xmlns:QualityModel="http://purl.org/net/QualityModel#"
      xmlns:oquo-fair-qm="https://purl.org/oquo-fair-qm#">
     <owl:Ontology rdf:about="https://purl.org/oquo-ofaire">
-        <owl:versionIRI rdf:resource="https://purl.org/oquo-ofaire/v1.0.0"/>
+        <owl:versionIRI rdf:resource="https://purl.org/oquo-ofaire/v1.0.1"/>
         <owl:imports rdf:resource="https://purl.org/oquo-fair-qm"/>
         <obo:IAO_0000116 xml:lang="en">The metrics, their credit levels and their explanations are generated from the questions.config.json file of O&apos;FAIRe (https://github.com/agroportal/fairness, MIT License). O&apos;FAIRe gives 0 credits to a question whenever it is not fulfilled or cannot be evaluated, so every scale includes a category with 0 credits even if O&apos;FAIRe does not declare it.</obo:IAO_0000116>
-        <dc:contributor>Francisco Abad-Navarro</dc:contributor>
-        <dc:creator>Francisco Abad-Navarro</dc:creator>
+        <dc:contributor rdf:resource="https://orcid.org/0000-0003-0201-3115"/>
+        <dc:creator rdf:resource="https://orcid.org/0000-0003-0201-3115"/>
         <dc:description xml:lang="en">OQUO module that integrates O&apos;FAIRe (Ontology FAIRness Evaluator), a framework that assesses the FAIRness of ontologies and semantic resources hosted in OntoPortal repositories, with the OQUO FAIR quality model. The module defines one metric for each of the 61 O&apos;FAIRe questions and associates it with the FAIR subcharacteristic it assesses. The raw value of each metric is the number of credits obtained in the question, measured on an ordinal scale whose categories are the possible credit levels of the question, ranked by their number of credits. The module also defines the conversions of these ordinal scales into the percentage scale of the FAIR quality model, which assign to each level its credits divided by the maximum credits of the question, as a percentage. 10 of the questions are not implemented in the current version of O&apos;FAIRe, which always gives them 0 credits.</dc:description>
         <dc:publisher>Universidad de Murcia</dc:publisher>
-        <dc:source xml:lang="en">Amdouni, E., Bouazzouni, S., Jonquet, C. (2022). O&apos;FAIRe makes you an offer: Metadata-based Automatic FAIRness Assessment for Ontologies and Semantic Resources. International Journal of Metadata, Semantics and Ontologies, Inderscience. https://hal.archives-ouvertes.fr/lirmm-03630233</dc:source>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
         <dc:title xml:lang="en">OQUO O&apos;FAIRe module</dc:title>
         <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-11-05</terms:created>
         <terms:license rdf:resource="http://www.apache.org/licenses/LICENSE-2.0"/>
@@ -37,6 +37,7 @@
         <vann:preferredNamespaceUri>https://purl.org/oquo-ofaire#</vann:preferredNamespaceUri>
         <rdfs:seeAlso rdf:resource="https://github.com/agroportal/fairness"/>
         <rdfs:seeAlso rdf:resource="https://github.com/agroportal/fairness/blob/master/doc/results/FAIR-questions.md"/>
+        <schema:codeRepository rdf:resource="https://github.com/tecnomod-um/oquo-use-cases"/>
     </owl:Ontology>
     
 
@@ -112,6 +113,7 @@
         <rdf1:acronym>A1Q1</rdf1:acronym>
         <rdfs:comment xml:lang="en">Does the ontology URI and other identifiers, if exist, resolve to the ontology?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe A1Q1 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -159,6 +161,7 @@
         <rdf1:acronym>A1Q2</rdf1:acronym>
         <rdfs:comment xml:lang="en">Does the ontology URI (if metadata is included in the ontology file) or the external metadata URI resolve to the metadata record?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe A1Q2 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -206,6 +209,7 @@
         <rdf1:acronym>A1Q3</rdf1:acronym>
         <rdfs:comment xml:lang="en">Do the ontology URI and the external metadata URI (if the metadata are not included in the ontology file), support content negotiation?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe A1Q3 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -253,6 +257,7 @@
         <rdf1:acronym>A1Q4</rdf1:acronym>
         <rdfs:comment xml:lang="en">Are the ontology and its metadata accessible through another standard protocol such as SPARQL?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe A1Q4 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -300,6 +305,7 @@
         <rdf1:acronym>A1.1Q1</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the ontology relying on HTTP/URIs for its identification and access mechanisms?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe A1.1Q1 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -347,6 +353,7 @@
         <rdf1:acronym>A1.1Q2</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the ontology access protocol open, free, and universally implementable?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe A1.1Q2 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -394,6 +401,7 @@
         <rdf1:acronym>A1.1Q3</rdf1:acronym>
         <rdfs:comment xml:lang="en">If the ontology and metadata are accessible through another protocol, is that protocol open, free, and universally implementable?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe A1.1Q3 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -441,6 +449,7 @@
         <rdf1:acronym>A1.2Q1</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the ontology accessible through a protocol that supports authentication and authorization?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe A1.2Q1 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -488,6 +497,7 @@
         <rdf1:acronym>A1.2Q2</rdf1:acronym>
         <rdfs:comment xml:lang="en">Are the ontology metadata accessible through a protocol that supports authentification and authorization?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe A1.2Q2 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -535,6 +545,7 @@
         <rdf1:acronym>A2Q1</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the ontology accessible in a repository that supports versioning?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe A2Q1 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -582,6 +593,7 @@
         <rdf1:acronym>A2Q2</rdf1:acronym>
         <rdfs:comment xml:lang="en">Are the ontology metadata of each version available?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe A2Q2 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -629,6 +641,7 @@
         <rdf1:acronym>A2Q3</rdf1:acronym>
         <rdfs:comment xml:lang="en">Are the ontology metadata accessible even if no more versions of the ontology are available?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe A2Q3 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -676,6 +689,7 @@
         <rdf1:acronym>A2Q4</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the status of the ontology clearly informed?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe A2Q4 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -734,6 +748,7 @@
         <rdf1:acronym>F1Q1</rdf1:acronym>
         <rdfs:comment xml:lang="en">Does the ontology have a &quot;local&quot; identifier, i.e., a globally unique and potentially permanent identifier assigned by the developer (or developing organization)?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe F1Q1 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -781,6 +796,7 @@
         <rdf1:acronym>F1Q2</rdf1:acronym>
         <rdfs:comment xml:lang="en">Does the ontology provide an additional &quot;external&quot; identifier, i.e., a guarantee globally unique and persistent identifier assigned by an accredited body? If yes, is the external identifier a DOI?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe F1Q2 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -828,6 +844,7 @@
         <rdf1:acronym>F1Q3</rdf1:acronym>
         <rdfs:comment xml:lang="en">Are the ontology metadata clearly identified either by the same identifier than the ontology (if included in the ontology file) or with its own globally unique and persistent identifier?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe F1Q3 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -875,6 +892,7 @@
         <rdf1:acronym>F1Q4</rdf1:acronym>
         <rdfs:comment xml:lang="en">Does the ontology provide a version-specific URI, and is this URI resolvable?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe F1Q4 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -922,6 +940,7 @@
         <rdf1:acronym>F2Q1</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the ontology described with additional &apos;MIRO must&apos; metadata properties?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe F2Q1 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -969,6 +988,7 @@
         <rdf1:acronym>F2Q2</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the ontology described with additional &apos;MIRO should&apos; or &apos;optional&apos; metadata properties?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe F2Q2 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1016,6 +1036,7 @@
         <rdf1:acronym>F2Q3</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the ontology described with another metadata property with no explicit corresponding MIRO requirement?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe F2Q3 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1063,6 +1084,7 @@
         <rdf1:acronym>F3Q1</rdf1:acronym>
         <rdfs:comment xml:lang="en">Are the ontology metadata included and maintained in the ontology file?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe F3Q1 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1110,6 +1132,7 @@
         <rdf1:acronym>F3Q2</rdf1:acronym>
         <rdfs:comment xml:lang="en">If not, are the ontology metadata described in an external file?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe F3Q2 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1157,6 +1180,7 @@
         <rdf1:acronym>F3Q3</rdf1:acronym>
         <rdfs:comment xml:lang="en">Does that external file explicitly link to the ontology and vice-versa?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe F3Q3 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1204,6 +1228,7 @@
         <rdf1:acronym>F4Q1</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the ontology registered in multiple ontology &apos;libraries&apos;?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe F4Q1 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1251,6 +1276,7 @@
         <rdf1:acronym>F4Q2</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the ontology registered in multiple open ontology &apos;repositories&apos;?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe F4Q2 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1298,6 +1324,7 @@
         <rdf1:acronym>F4Q3</rdf1:acronym>
         <rdfs:comment xml:lang="en">Are the ontology libraries or repositories properly indexed by Web search engines?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe F4Q3 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1345,6 +1372,7 @@
         <rdf1:acronym>I1Q1</rdf1:acronym>
         <rdfs:comment xml:lang="en">What is the representation language used for ontology and ontology metadata?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe I1Q1 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1392,6 +1420,7 @@
         <rdf1:acronym>I1Q2</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the representation language used a W3C Recommendation?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe I1Q2 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1439,6 +1468,7 @@
         <rdf1:acronym>I1Q3</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the syntax of the ontology informed?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe I1Q3 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1486,6 +1516,7 @@
         <rdf1:acronym>I1Q4</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the formality level of the ontology informed?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe I1Q4 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1533,6 +1564,7 @@
         <rdf1:acronym>I1Q5</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the availability of other syntaxes/formats informed?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe I1Q5 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1580,6 +1612,7 @@
         <rdf1:acronym>I2Q1</rdf1:acronym>
         <rdfs:comment xml:lang="en">Does the ontology import other FAIR vocabularies?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe I2Q1 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1627,6 +1660,7 @@
         <rdf1:acronym>I2Q2</rdf1:acronym>
         <rdfs:comment xml:lang="en">Does the ontology reuse terms from other FAIR vocabularies (URIs)?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe I2Q2 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1674,6 +1708,7 @@
         <rdf1:acronym>I2Q3</rdf1:acronym>
         <rdfs:comment xml:lang="en">If yes, does it include the minimum information for those terms?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe I2Q3 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1721,6 +1756,7 @@
         <rdf1:acronym>I2Q4</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the ontology aligned to other FAIR vocabularies?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe I2Q4 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1768,6 +1804,7 @@
         <rdf1:acronym>I2Q5</rdf1:acronym>
         <rdfs:comment xml:lang="en">If yes, are those alignments well represented and to unambiguous entities? If yes, are those alignements curated?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe I2Q5 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1815,6 +1852,7 @@
         <rdf1:acronym>I2Q6</rdf1:acronym>
         <rdfs:comment xml:lang="en">Does the ontology provide metadata information about relation to or influence of other FAIR vocabularies?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe I2Q6 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1862,6 +1900,7 @@
         <rdf1:acronym>I2Q7</rdf1:acronym>
         <rdfs:comment xml:lang="en">Does the ontology reuse standard and FAIR metadata vocabularies to describe its metadata?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe I2Q7 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1909,6 +1948,7 @@
         <rdf1:acronym>I3Q1</rdf1:acronym>
         <rdfs:comment xml:lang="en">Does an ontology provide qualified cross-references to external resources/databases?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe I3Q1 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -1956,6 +1996,7 @@
         <rdf1:acronym>I3Q2</rdf1:acronym>
         <rdfs:comment xml:lang="en">If yes, are those cross-references well represented and to unambiguous entities?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe I3Q2 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2003,6 +2044,7 @@
         <rdf1:acronym>I3Q3</rdf1:acronym>
         <rdfs:comment xml:lang="en">Does the ontology use valid URIs to encode some metadata values?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe I3Q3 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2050,6 +2092,7 @@
         <rdf1:acronym>R1Q1</rdf1:acronym>
         <rdfs:comment xml:lang="en">Does the ontology provide information about how classes or concepts are defined?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1Q1 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2097,6 +2140,7 @@
         <rdf1:acronym>R1Q2</rdf1:acronym>
         <rdfs:comment xml:lang="en">Does the ontology provide information about its hierarchy?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1Q2 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2144,6 +2188,7 @@
         <rdf1:acronym>R1Q3</rdf1:acronym>
         <rdfs:comment xml:lang="en">How much of the ontology objects are described with labels?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1Q3 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2191,6 +2236,7 @@
         <rdf1:acronym>R1Q4</rdf1:acronym>
         <rdfs:comment xml:lang="en">How much of the ontology objects are defined using a text description?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1Q4 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2238,6 +2284,7 @@
         <rdf1:acronym>R1Q5</rdf1:acronym>
         <rdfs:comment xml:lang="en">How much ontology objects are defined using a property restriction or an equivalent class?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1Q5 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2285,6 +2332,7 @@
         <rdf1:acronym>R1Q6</rdf1:acronym>
         <rdfs:comment xml:lang="en">How much of the ontology objects provide provenance information with annotation properties?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1Q6 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2332,6 +2380,7 @@
         <rdf1:acronym>R1.1Q1</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the ontology license clearly specified, with an URI that is resolvable and supports content negotiation?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1.1Q1 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2379,6 +2428,7 @@
         <rdf1:acronym>R1.1Q2</rdf1:acronym>
         <rdfs:comment xml:lang="en">Are the ontology access rights specified and permissions documented?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1.1Q2 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2426,6 +2476,7 @@
         <rdf1:acronym>R1.1Q3</rdf1:acronym>
         <rdfs:comment xml:lang="en">Are the ontology usage guidelines and copyright holder documented?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1.1Q3 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2473,6 +2524,7 @@
         <rdf1:acronym>R1.2Q1</rdf1:acronym>
         <rdfs:comment xml:lang="en">Does the ontology provide information about the actors involved in its development?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1.2Q1 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2520,6 +2572,7 @@
         <rdf1:acronym>R1.2Q2</rdf1:acronym>
         <rdfs:comment xml:lang="en">Does an ontology provide information on its general provenance?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1.2Q2 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2567,6 +2620,7 @@
         <rdf1:acronym>R1.2Q3</rdf1:acronym>
         <rdfs:comment xml:lang="en">Are the accrual methods and policy of the ontology documented?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1.2Q3 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2614,6 +2668,7 @@
         <rdf1:acronym>R1.2Q4</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the ontology clearly versioned with version information and links to previous versions?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1.2Q4 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2661,6 +2716,7 @@
         <rdf1:acronym>R1.2Q5</rdf1:acronym>
         <rdfs:comment xml:lang="en">Are the ontology latest changes documented?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1.2Q5 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2708,6 +2764,7 @@
         <rdf1:acronym>R1.2Q6</rdf1:acronym>
         <rdfs:comment xml:lang="en">Are the methodology and tools used to build the ontology documented?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1.2Q6 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2755,6 +2812,7 @@
         <rdf1:acronym>R1.2Q7</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the ontology rationale documented?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1.2Q7 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2802,6 +2860,7 @@
         <rdf1:acronym>R1.2Q8</rdf1:acronym>
         <rdfs:comment xml:lang="en">Does an ontology inform about its funding organization?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1.2Q8 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2849,6 +2908,7 @@
         <rdf1:acronym>R1.3Q1</rdf1:acronym>
         <rdfs:comment xml:lang="en">Does an ontology provide information about projects using or organizations endorsing?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1.3Q1 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2896,6 +2956,7 @@
         <rdf1:acronym>R1.3Q2</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the ontology included in a specific community set or group?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1.3Q2 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 
@@ -2943,6 +3004,7 @@
         <rdf1:acronym>R1.3Q3</rdf1:acronym>
         <rdfs:comment xml:lang="en">Is the ontology openly and freely available?</rdfs:comment>
         <rdfs:label xml:lang="en">O&apos;FAIRe R1.3Q3 metric</rdfs:label>
+        <dc:source rdf:resource="https://hal.archives-ouvertes.fr/lirmm-03630233"/>
     </owl:Class>
     
 

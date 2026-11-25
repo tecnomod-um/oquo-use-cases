@@ -20,6 +20,7 @@
      xmlns:oquo-fair-qm="https://purl.org/oquo-fair-qm#"
      xmlns:QualityModel="http://purl.org/net/QualityModel#">
     <owl:Ontology rdf:about="https://purl.org/oquo-foops">
+        <owl:versionIRI rdf:resource="https://purl.org/oquo-foops/v1.0.0"/>
         <owl:imports rdf:resource="https://purl.org/oquo-fair-qm"/>
         <dc:title xml:lang="en">OQUO FOOPS! module</dc:title>
         <dc:description xml:lang="en">OQUO extension module that describes the metrics of FOOPS! (Ontology Pitfall Scanner for FAIR), their raw scales and the conversions of these raw scales into the percentage scale of the OQUO FAIR quality model. Each FOOPS! check is represented as a metric linked to the FAIR subcharacteristic it assesses, whose raw value is the ratio between the passed and run tests of the check. The module also defines the types of issues of non conformity that FOOPS! can report: one ontology level issue per failed check, and one term level issue per term affected by the checks on term labels and definitions.</dc:description>
@@ -30,6 +31,11 @@
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/"/>
         <rdfs:seeAlso rdf:resource="https://github.com/oeg-upm/fair_ontologies"/>
         <obo:IAO_0000116 xml:lang="en">The definitions of the metrics are adapted from the FOOPS! metric descriptions (https://w3id.org/foops/catalog, CC BY 4.0). Each metric is linked through rdfs:seeAlso to the corresponding FOOPS! metric, and each issue type to the FOOPS! test that reports it. The IRI of the test is the id returned by FOOPS! for each check in its results, and the IRI of the metric it implements follows the same pattern, replacing /test/ with /metric/ (e.g. https://w3id.org/foops/test/PURL1 and https://w3id.org/foops/metric/PURL1).</obo:IAO_0000116>
+        <dc:contributor rdf:resource="https://orcid.org/0000-0003-0201-3115"/>
+        <dc:creator rdf:resource="https://orcid.org/0000-0003-0201-3115"/>
+        <dc:publisher>Universidad de Murcia</dc:publisher>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
+        <schema:codeRepository rdf:resource="https://github.com/tecnomod-um/oquo-use-cases"/>
     </owl:Ontology>
 
 
@@ -105,6 +111,7 @@
         <rdfs:comment xml:lang="en">Whether the ontology declares basic provenance metadata (author and creation date).</rdfs:comment>
         <rdfs:label xml:lang="en">basic provenance metadata metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/OM5.1"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -153,6 +160,7 @@
         <rdfs:comment xml:lang="en">Whether the URI used to access the ontology is consistent with the ontology URI declared in the document.</rdfs:comment>
         <rdfs:label xml:lang="en">consistent ontology ID metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/URI2"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -201,6 +209,7 @@
         <rdfs:comment xml:lang="en">Whether the ontology can be retrieved both as HTML and in a recognised RDF serialisation.</rdfs:comment>
         <rdfs:label xml:lang="en">content negotiation metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/CN1"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -249,6 +258,7 @@
         <rdfs:comment xml:lang="en">Whether the ontology declares a set of detailed metadata fields.</rdfs:comment>
         <rdfs:label xml:lang="en">detailed metadata metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/OM3"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -297,6 +307,7 @@
         <rdfs:comment xml:lang="en">Whether the ontology declares detailed provenance metadata (issued date and publisher).</rdfs:comment>
         <rdfs:label xml:lang="en">detailed provenance metadata metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/OM5.2"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -345,6 +356,7 @@
         <rdfs:comment xml:lang="en">Whether the ontology has accessible HTML documentation.</rdfs:comment>
         <rdfs:label xml:lang="en">HTML documentation metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/DOC1"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -393,6 +405,7 @@
         <rdfs:comment xml:lang="en">Whether the ontology declares a license or rights statement.</rdfs:comment>
         <rdfs:label xml:lang="en">license available metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/OM4.1"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -441,6 +454,7 @@
         <rdfs:comment xml:lang="en">Whether the license of the ontology is identified by a resolvable URL.</rdfs:comment>
         <rdfs:label xml:lang="en">license resolvable metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/OM4.2"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -489,6 +503,7 @@
         <rdfs:comment xml:lang="en">Whether the metadata of the ontology remain accessible even if the ontology itself becomes unavailable.</rdfs:comment>
         <rdfs:label xml:lang="en">metadata accessible without ontology metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/FIND_3_BIS"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -537,6 +552,7 @@
         <rdfs:comment xml:lang="en">Whether the ontology reuses established vocabularies for its metadata annotations.</rdfs:comment>
         <rdfs:label xml:lang="en">metadata vocabulary reuse metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/VOC1"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -585,6 +601,7 @@
         <rdfs:comment xml:lang="en">Whether the ontology declares the minimum metadata required to ease its findability.</rdfs:comment>
         <rdfs:label xml:lang="en">minimum metadata metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/OM1"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -633,6 +650,7 @@
         <rdfs:comment xml:lang="en">Whether the ontology is registered in a public metadata registry such as LOV.</rdfs:comment>
         <rdfs:label xml:lang="en">ontology in metadata registry metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/FIND3"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -681,6 +699,7 @@
         <rdfs:comment xml:lang="en">Whether a preferred prefix for the ontology is declared in its metadata.</rdfs:comment>
         <rdfs:label xml:lang="en">ontology prefix declared metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/FIND1"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -729,6 +748,7 @@
         <rdfs:comment xml:lang="en">Whether the ontology URI declared in the document resolves to RDF content.</rdfs:comment>
         <rdfs:label xml:lang="en">ontology URI resolvable metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/URI1"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -777,6 +797,7 @@
         <rdfs:comment xml:lang="en">Whether the ontology is accessible through an open protocol such as HTTP or HTTPS.</rdfs:comment>
         <rdfs:label xml:lang="en">open protocol metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/HTTP1"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -825,6 +846,7 @@
         <rdfs:comment xml:lang="en">Whether the ontology URI is a persistent URL.</rdfs:comment>
         <rdfs:label xml:lang="en">persistent URL metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/PURL1"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -873,6 +895,7 @@
         <rdfs:comment xml:lang="en">Whether the prefix of the ontology is found in a community registry and resolves to the ontology URI.</rdfs:comment>
         <rdfs:label xml:lang="en">prefix in community registry metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/FIND2"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -921,6 +944,7 @@
         <rdfs:comment xml:lang="en">Whether the ontology is available in a valid RDF serialisation.</rdfs:comment>
         <rdfs:label xml:lang="en">RDF availability metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/RDF1"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -969,6 +993,7 @@
         <rdfs:comment xml:lang="en">Whether the ontology declares a set of recommended metadata fields.</rdfs:comment>
         <rdfs:label xml:lang="en">recommended metadata metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/OM2"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -1017,6 +1042,7 @@
         <rdfs:comment xml:lang="en">Proportion of ontology terms that have a definition.</rdfs:comment>
         <rdfs:label xml:lang="en">term definitions metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/VOC4"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -1065,6 +1091,7 @@
         <rdfs:comment xml:lang="en">Proportion of ontology terms that have a human-readable label.</rdfs:comment>
         <rdfs:label xml:lang="en">term labels metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/VOC3"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -1113,6 +1140,7 @@
         <rdfs:comment xml:lang="en">Whether the ontology declares a version IRI distinct from the ontology URI.</rdfs:comment>
         <rdfs:label xml:lang="en">version IRI declared metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/VER1"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -1161,6 +1189,7 @@
         <rdfs:comment xml:lang="en">Whether the version IRI of the ontology resolves.</rdfs:comment>
         <rdfs:label xml:lang="en">version IRI resolvable metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/VER2"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
@@ -1209,6 +1238,7 @@
         <rdfs:comment xml:lang="en">Whether the ontology imports or reuses vocabularies other than RDF, RDFS and OWL.</rdfs:comment>
         <rdfs:label xml:lang="en">vocabulary reuse metric</rdfs:label>
         <rdfs:seeAlso rdf:resource="https://w3id.org/foops/metric/VOC2"/>
+        <dc:source rdf:resource="http://ceur-ws.org/Vol-2980/paper321.pdf"/>
     </owl:Class>
 
 
